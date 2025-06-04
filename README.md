@@ -11,3 +11,6 @@ I finish the 2nd upgraded prototype in December of 2024. I changed the LCD displ
 The code is in the /src/panel folder.
 
 I used an microcontroller from the 8051 family, the STC125A60S2 developed by STC Microcontrollers. Compiled using SDCC.
+
+
+![](img/mars_lander.png)
