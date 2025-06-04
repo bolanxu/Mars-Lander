@@ -1,0 +1,2412 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 3.5.0 #9253 (Apr  3 2018) (Linux)
+                                      4 ; This file was generated Sat Mar 11 13:47:00 2023
+                                      5 ;--------------------------------------------------------
+                                      6 	.module main
+                                      7 	.optsdcc -mmcs51 --model-small
+                                      8 	
+                                      9 ;--------------------------------------------------------
+                                     10 ; Public variables in this module
+                                     11 ;--------------------------------------------------------
+                                     12 	.globl _emb2
+                                     13 	.globl _emb1
+                                     14 	.globl _em3
+                                     15 	.globl _em2
+                                     16 	.globl _em1
+                                     17 	.globl _leak3
+                                     18 	.globl _leak2
+                                     19 	.globl _leak1
+                                     20 	.globl _turb3
+                                     21 	.globl _turb2
+                                     22 	.globl _turb1
+                                     23 	.globl _enginep5
+                                     24 	.globl _enginep4
+                                     25 	.globl _enginep3
+                                     26 	.globl _enginep2
+                                     27 	.globl _enginep1
+                                     28 	.globl _start11
+                                     29 	.globl _start10
+                                     30 	.globl _start9
+                                     31 	.globl _start8
+                                     32 	.globl _start7
+                                     33 	.globl _start6
+                                     34 	.globl _start5
+                                     35 	.globl _start4
+                                     36 	.globl _start3
+                                     37 	.globl _start2
+                                     38 	.globl _start1
+                                     39 	.globl _gameover
+                                     40 	.globl _lose
+                                     41 	.globl _win
+                                     42 	.globl _timer1
+                                     43 	.globl _INT0_INT
+                                     44 	.globl _timer0
+                                     45 	.globl _main
+                                     46 	.globl _enginepower
+                                     47 	.globl _turb
+                                     48 	.globl _fuelleak
+                                     49 	.globl _start
+                                     50 	.globl _init
+                                     51 	.globl _write_data
+                                     52 	.globl _write_com
+                                     53 	.globl _delay
+                                     54 	.globl _Timer0Init
+                                     55 	.globl _CY
+                                     56 	.globl _AC
+                                     57 	.globl _F0
+                                     58 	.globl _RS1
+                                     59 	.globl _RS0
+                                     60 	.globl _OV
+                                     61 	.globl _FL
+                                     62 	.globl _P
+                                     63 	.globl _TF2
+                                     64 	.globl _EXF2
+                                     65 	.globl _RCLK
+                                     66 	.globl _TCLK
+                                     67 	.globl _EXEN2
+                                     68 	.globl _TR2
+                                     69 	.globl _C_T2
+                                     70 	.globl _CP_RL2
+                                     71 	.globl _T2CON_7
+                                     72 	.globl _T2CON_6
+                                     73 	.globl _T2CON_5
+                                     74 	.globl _T2CON_4
+                                     75 	.globl _T2CON_3
+                                     76 	.globl _T2CON_2
+                                     77 	.globl _T2CON_1
+                                     78 	.globl _T2CON_0
+                                     79 	.globl _PT2
+                                     80 	.globl _PS
+                                     81 	.globl _PT1
+                                     82 	.globl _PX1
+                                     83 	.globl _PT0
+                                     84 	.globl _PX0
+                                     85 	.globl _RD
+                                     86 	.globl _WR
+                                     87 	.globl _T1
+                                     88 	.globl _T0
+                                     89 	.globl _INT1
+                                     90 	.globl _INT0
+                                     91 	.globl _TXD
+                                     92 	.globl _RXD
+                                     93 	.globl _P3_7
+                                     94 	.globl _P3_6
+                                     95 	.globl _P3_5
+                                     96 	.globl _P3_4
+                                     97 	.globl _P3_3
+                                     98 	.globl _P3_2
+                                     99 	.globl _P3_1
+                                    100 	.globl _P3_0
+                                    101 	.globl _EA
+                                    102 	.globl _ET2
+                                    103 	.globl _ES
+                                    104 	.globl _ET1
+                                    105 	.globl _EX1
+                                    106 	.globl _ET0
+                                    107 	.globl _EX0
+                                    108 	.globl _P2_7
+                                    109 	.globl _P2_6
+                                    110 	.globl _P2_5
+                                    111 	.globl _P2_4
+                                    112 	.globl _P2_3
+                                    113 	.globl _P2_2
+                                    114 	.globl _P2_1
+                                    115 	.globl _P2_0
+                                    116 	.globl _SM0
+                                    117 	.globl _SM1
+                                    118 	.globl _SM2
+                                    119 	.globl _REN
+                                    120 	.globl _TB8
+                                    121 	.globl _RB8
+                                    122 	.globl _TI
+                                    123 	.globl _RI
+                                    124 	.globl _T2EX
+                                    125 	.globl _T2
+                                    126 	.globl _P1_7
+                                    127 	.globl _P1_6
+                                    128 	.globl _P1_5
+                                    129 	.globl _P1_4
+                                    130 	.globl _P1_3
+                                    131 	.globl _P1_2
+                                    132 	.globl _P1_1
+                                    133 	.globl _P1_0
+                                    134 	.globl _TF1
+                                    135 	.globl _TR1
+                                    136 	.globl _TF0
+                                    137 	.globl _TR0
+                                    138 	.globl _IE1
+                                    139 	.globl _IT1
+                                    140 	.globl _IE0
+                                    141 	.globl _IT0
+                                    142 	.globl _P0_7
+                                    143 	.globl _P0_6
+                                    144 	.globl _P0_5
+                                    145 	.globl _P0_4
+                                    146 	.globl _P0_3
+                                    147 	.globl _P0_2
+                                    148 	.globl _P0_1
+                                    149 	.globl _P0_0
+                                    150 	.globl _B
+                                    151 	.globl _A
+                                    152 	.globl _ACC
+                                    153 	.globl _PSW
+                                    154 	.globl _TH2
+                                    155 	.globl _TL2
+                                    156 	.globl _RCAP2H
+                                    157 	.globl _RCAP2L
+                                    158 	.globl _T2MOD
+                                    159 	.globl _T2CON
+                                    160 	.globl _IP
+                                    161 	.globl _P3
+                                    162 	.globl _IE
+                                    163 	.globl _P2
+                                    164 	.globl _SBUF
+                                    165 	.globl _SCON
+                                    166 	.globl _P1
+                                    167 	.globl _TH1
+                                    168 	.globl _TH0
+                                    169 	.globl _TL1
+                                    170 	.globl _TL0
+                                    171 	.globl _TMOD
+                                    172 	.globl _TCON
+                                    173 	.globl _PCON
+                                    174 	.globl _DPH
+                                    175 	.globl _DPL
+                                    176 	.globl _SP
+                                    177 	.globl _P0
+                                    178 	.globl _l
+                                    179 	.globl _s
+                                    180 	.globl _n
+                                    181 	.globl _x
+                                    182 	.globl _digit4
+                                    183 	.globl _digit3
+                                    184 	.globl _digit2
+                                    185 	.globl _digit1
+                                    186 	.globl _delta_h
+                                    187 	.globl _a
+                                    188 	.globl _delta_t
+                                    189 	.globl _delta_d
+                                    190 	.globl _delta_v
+                                    191 	.globl _fuel
+                                    192 	.globl _gravity
+                                    193 	.globl _height
+                                    194 	.globl _ship_mass
+                                    195 	.globl _ship_thrust
+                                    196 	.globl _thrust
+                                    197 	.globl _velocity
+                                    198 	.globl _num
+                                    199 	.globl _digit
+                                    200 	.globl _sign
+                                    201 	.globl _displaynum
+                                    202 ;--------------------------------------------------------
+                                    203 ; special function registers
+                                    204 ;--------------------------------------------------------
+                                    205 	.area RSEG    (ABS,DATA)
+      000000                        206 	.org 0x0000
+                           000080   207 _P0	=	0x0080
+                           000081   208 _SP	=	0x0081
+                           000082   209 _DPL	=	0x0082
+                           000083   210 _DPH	=	0x0083
+                           000087   211 _PCON	=	0x0087
+                           000088   212 _TCON	=	0x0088
+                           000089   213 _TMOD	=	0x0089
+                           00008A   214 _TL0	=	0x008a
+                           00008B   215 _TL1	=	0x008b
+                           00008C   216 _TH0	=	0x008c
+                           00008D   217 _TH1	=	0x008d
+                           000090   218 _P1	=	0x0090
+                           000098   219 _SCON	=	0x0098
+                           000099   220 _SBUF	=	0x0099
+                           0000A0   221 _P2	=	0x00a0
+                           0000A8   222 _IE	=	0x00a8
+                           0000B0   223 _P3	=	0x00b0
+                           0000B8   224 _IP	=	0x00b8
+                           0000C8   225 _T2CON	=	0x00c8
+                           0000C9   226 _T2MOD	=	0x00c9
+                           0000CA   227 _RCAP2L	=	0x00ca
+                           0000CB   228 _RCAP2H	=	0x00cb
+                           0000CC   229 _TL2	=	0x00cc
+                           0000CD   230 _TH2	=	0x00cd
+                           0000D0   231 _PSW	=	0x00d0
+                           0000E0   232 _ACC	=	0x00e0
+                           0000E0   233 _A	=	0x00e0
+                           0000F0   234 _B	=	0x00f0
+                                    235 ;--------------------------------------------------------
+                                    236 ; special function bits
+                                    237 ;--------------------------------------------------------
+                                    238 	.area RSEG    (ABS,DATA)
+      000000                        239 	.org 0x0000
+                           000080   240 _P0_0	=	0x0080
+                           000081   241 _P0_1	=	0x0081
+                           000082   242 _P0_2	=	0x0082
+                           000083   243 _P0_3	=	0x0083
+                           000084   244 _P0_4	=	0x0084
+                           000085   245 _P0_5	=	0x0085
+                           000086   246 _P0_6	=	0x0086
+                           000087   247 _P0_7	=	0x0087
+                           000088   248 _IT0	=	0x0088
+                           000089   249 _IE0	=	0x0089
+                           00008A   250 _IT1	=	0x008a
+                           00008B   251 _IE1	=	0x008b
+                           00008C   252 _TR0	=	0x008c
+                           00008D   253 _TF0	=	0x008d
+                           00008E   254 _TR1	=	0x008e
+                           00008F   255 _TF1	=	0x008f
+                           000090   256 _P1_0	=	0x0090
+                           000091   257 _P1_1	=	0x0091
+                           000092   258 _P1_2	=	0x0092
+                           000093   259 _P1_3	=	0x0093
+                           000094   260 _P1_4	=	0x0094
+                           000095   261 _P1_5	=	0x0095
+                           000096   262 _P1_6	=	0x0096
+                           000097   263 _P1_7	=	0x0097
+                           000090   264 _T2	=	0x0090
+                           000091   265 _T2EX	=	0x0091
+                           000098   266 _RI	=	0x0098
+                           000099   267 _TI	=	0x0099
+                           00009A   268 _RB8	=	0x009a
+                           00009B   269 _TB8	=	0x009b
+                           00009C   270 _REN	=	0x009c
+                           00009D   271 _SM2	=	0x009d
+                           00009E   272 _SM1	=	0x009e
+                           00009F   273 _SM0	=	0x009f
+                           0000A0   274 _P2_0	=	0x00a0
+                           0000A1   275 _P2_1	=	0x00a1
+                           0000A2   276 _P2_2	=	0x00a2
+                           0000A3   277 _P2_3	=	0x00a3
+                           0000A4   278 _P2_4	=	0x00a4
+                           0000A5   279 _P2_5	=	0x00a5
+                           0000A6   280 _P2_6	=	0x00a6
+                           0000A7   281 _P2_7	=	0x00a7
+                           0000A8   282 _EX0	=	0x00a8
+                           0000A9   283 _ET0	=	0x00a9
+                           0000AA   284 _EX1	=	0x00aa
+                           0000AB   285 _ET1	=	0x00ab
+                           0000AC   286 _ES	=	0x00ac
+                           0000AD   287 _ET2	=	0x00ad
+                           0000AF   288 _EA	=	0x00af
+                           0000B0   289 _P3_0	=	0x00b0
+                           0000B1   290 _P3_1	=	0x00b1
+                           0000B2   291 _P3_2	=	0x00b2
+                           0000B3   292 _P3_3	=	0x00b3
+                           0000B4   293 _P3_4	=	0x00b4
+                           0000B5   294 _P3_5	=	0x00b5
+                           0000B6   295 _P3_6	=	0x00b6
+                           0000B7   296 _P3_7	=	0x00b7
+                           0000B0   297 _RXD	=	0x00b0
+                           0000B1   298 _TXD	=	0x00b1
+                           0000B2   299 _INT0	=	0x00b2
+                           0000B3   300 _INT1	=	0x00b3
+                           0000B4   301 _T0	=	0x00b4
+                           0000B5   302 _T1	=	0x00b5
+                           0000B6   303 _WR	=	0x00b6
+                           0000B7   304 _RD	=	0x00b7
+                           0000B8   305 _PX0	=	0x00b8
+                           0000B9   306 _PT0	=	0x00b9
+                           0000BA   307 _PX1	=	0x00ba
+                           0000BB   308 _PT1	=	0x00bb
+                           0000BC   309 _PS	=	0x00bc
+                           0000BD   310 _PT2	=	0x00bd
+                           0000C8   311 _T2CON_0	=	0x00c8
+                           0000C9   312 _T2CON_1	=	0x00c9
+                           0000CA   313 _T2CON_2	=	0x00ca
+                           0000CB   314 _T2CON_3	=	0x00cb
+                           0000CC   315 _T2CON_4	=	0x00cc
+                           0000CD   316 _T2CON_5	=	0x00cd
+                           0000CE   317 _T2CON_6	=	0x00ce
+                           0000CF   318 _T2CON_7	=	0x00cf
+                           0000C8   319 _CP_RL2	=	0x00c8
+                           0000C9   320 _C_T2	=	0x00c9
+                           0000CA   321 _TR2	=	0x00ca
+                           0000CB   322 _EXEN2	=	0x00cb
+                           0000CC   323 _TCLK	=	0x00cc
+                           0000CD   324 _RCLK	=	0x00cd
+                           0000CE   325 _EXF2	=	0x00ce
+                           0000CF   326 _TF2	=	0x00cf
+                           0000D0   327 _P	=	0x00d0
+                           0000D1   328 _FL	=	0x00d1
+                           0000D2   329 _OV	=	0x00d2
+                           0000D3   330 _RS0	=	0x00d3
+                           0000D4   331 _RS1	=	0x00d4
+                           0000D5   332 _F0	=	0x00d5
+                           0000D6   333 _AC	=	0x00d6
+                           0000D7   334 _CY	=	0x00d7
+                                    335 ;--------------------------------------------------------
+                                    336 ; overlayable register banks
+                                    337 ;--------------------------------------------------------
+                                    338 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        339 	.ds 8
+                                    340 ;--------------------------------------------------------
+                                    341 ; overlayable bit register bank
+                                    342 ;--------------------------------------------------------
+                                    343 	.area BIT_BANK	(REL,OVR,DATA)
+      000000                        344 bits:
+      000000                        345 	.ds 1
+                           008000   346 	b0 = bits[0]
+                           008100   347 	b1 = bits[1]
+                           008200   348 	b2 = bits[2]
+                           008300   349 	b3 = bits[3]
+                           008400   350 	b4 = bits[4]
+                           008500   351 	b5 = bits[5]
+                           008600   352 	b6 = bits[6]
+                           008700   353 	b7 = bits[7]
+                                    354 ;--------------------------------------------------------
+                                    355 ; internal ram data
+                                    356 ;--------------------------------------------------------
+                                    357 	.area DSEG    (DATA)
+      000000                        358 _num::
+      000000                        359 	.ds 1
+      000001                        360 _velocity::
+      000001                        361 	.ds 4
+      000005                        362 _thrust::
+      000005                        363 	.ds 4
+      000009                        364 _ship_thrust::
+      000009                        365 	.ds 4
+      00000D                        366 _ship_mass::
+      00000D                        367 	.ds 4
+      000011                        368 _height::
+      000011                        369 	.ds 4
+      000015                        370 _gravity::
+      000015                        371 	.ds 4
+      000019                        372 _fuel::
+      000019                        373 	.ds 4
+      00001D                        374 _delta_v::
+      00001D                        375 	.ds 4
+      000021                        376 _delta_d::
+      000021                        377 	.ds 4
+      000025                        378 _delta_t::
+      000025                        379 	.ds 4
+      000029                        380 _a::
+      000029                        381 	.ds 4
+      00002D                        382 _delta_h::
+      00002D                        383 	.ds 4
+      000031                        384 _digit1::
+      000031                        385 	.ds 1
+      000032                        386 _digit2::
+      000032                        387 	.ds 1
+      000033                        388 _digit3::
+      000033                        389 	.ds 1
+      000034                        390 _digit4::
+      000034                        391 	.ds 1
+      000035                        392 _x::
+      000035                        393 	.ds 2
+      000037                        394 _n::
+      000037                        395 	.ds 2
+      000039                        396 _s::
+      000039                        397 	.ds 2
+                                    398 ;--------------------------------------------------------
+                                    399 ; overlayable items in internal ram 
+                                    400 ;--------------------------------------------------------
+                                    401 	.area	OSEG    (OVR,DATA)
+                                    402 ;--------------------------------------------------------
+                                    403 ; Stack segment in internal ram 
+                                    404 ;--------------------------------------------------------
+                                    405 	.area	SSEG
+      000000                        406 __start__stack:
+      000000                        407 	.ds	1
+                                    408 
+                                    409 ;--------------------------------------------------------
+                                    410 ; indirectly addressable internal ram data
+                                    411 ;--------------------------------------------------------
+                                    412 	.area ISEG    (DATA)
+                                    413 ;--------------------------------------------------------
+                                    414 ; absolute internal ram data
+                                    415 ;--------------------------------------------------------
+                                    416 	.area IABS    (ABS,DATA)
+                                    417 	.area IABS    (ABS,DATA)
+                                    418 ;--------------------------------------------------------
+                                    419 ; bit data
+                                    420 ;--------------------------------------------------------
+                                    421 	.area BSEG    (BIT)
+      000000                        422 _l::
+      000000                        423 	.ds 1
+                                    424 ;--------------------------------------------------------
+                                    425 ; paged external ram data
+                                    426 ;--------------------------------------------------------
+                                    427 	.area PSEG    (PAG,XDATA)
+                                    428 ;--------------------------------------------------------
+                                    429 ; external ram data
+                                    430 ;--------------------------------------------------------
+                                    431 	.area XSEG    (XDATA)
+                                    432 ;--------------------------------------------------------
+                                    433 ; absolute external ram data
+                                    434 ;--------------------------------------------------------
+                                    435 	.area XABS    (ABS,XDATA)
+                                    436 ;--------------------------------------------------------
+                                    437 ; external initialized ram data
+                                    438 ;--------------------------------------------------------
+                                    439 	.area XISEG   (XDATA)
+                                    440 	.area HOME    (CODE)
+                                    441 	.area GSINIT0 (CODE)
+                                    442 	.area GSINIT1 (CODE)
+                                    443 	.area GSINIT2 (CODE)
+                                    444 	.area GSINIT3 (CODE)
+                                    445 	.area GSINIT4 (CODE)
+                                    446 	.area GSINIT5 (CODE)
+                                    447 	.area GSINIT  (CODE)
+                                    448 	.area GSFINAL (CODE)
+                                    449 	.area CSEG    (CODE)
+                                    450 ;--------------------------------------------------------
+                                    451 ; interrupt vector 
+                                    452 ;--------------------------------------------------------
+                                    453 	.area HOME    (CODE)
+      000000                        454 __interrupt_vect:
+      000000 02r00r00         [24]  455 	ljmp	__sdcc_gsinit_startup
+      000003 02r0Ar0B         [24]  456 	ljmp	_INT0_INT
+      000006                        457 	.ds	5
+      00000B 02r08r9A         [24]  458 	ljmp	_timer0
+      00000E                        459 	.ds	5
+      000013 32               [24]  460 	reti
+      000014                        461 	.ds	7
+      00001B 02r0Ar91         [24]  462 	ljmp	_timer1
+                                    463 ;--------------------------------------------------------
+                                    464 ; global & static initialisations
+                                    465 ;--------------------------------------------------------
+                                    466 	.area HOME    (CODE)
+                                    467 	.area GSINIT  (CODE)
+                                    468 	.area GSFINAL (CODE)
+                                    469 	.area GSINIT  (CODE)
+                                    470 	.globl __sdcc_gsinit_startup
+                                    471 	.globl __sdcc_program_startup
+                                    472 	.globl __start__stack
+                                    473 	.globl __mcs51_genXINIT
+                                    474 	.globl __mcs51_genXRAMCLEAR
+                                    475 	.globl __mcs51_genRAMCLEAR
+                                    476 ;	main.c:9: unsigned char num=0;
+      000000 75*00 00         [24]  477 	mov	_num,#0x00
+                                    478 ;	main.c:48: float velocity = 0.0;
+      000003 E4               [12]  479 	clr	a
+      000004 F5*01            [12]  480 	mov	_velocity,a
+      000006 F5*02            [12]  481 	mov	(_velocity + 1),a
+      000008 F5*03            [12]  482 	mov	(_velocity + 2),a
+      00000A F5*04            [12]  483 	mov	(_velocity + 3),a
+                                    484 ;	main.c:49: float thrust = 0.0;
+      00000C F5*05            [12]  485 	mov	_thrust,a
+      00000E F5*06            [12]  486 	mov	(_thrust + 1),a
+      000010 F5*07            [12]  487 	mov	(_thrust + 2),a
+      000012 F5*08            [12]  488 	mov	(_thrust + 3),a
+                                    489 ;	main.c:50: float ship_thrust = 600.0;
+      000014 F5*09            [12]  490 	mov	_ship_thrust,a
+      000016 F5*0A            [12]  491 	mov	(_ship_thrust + 1),a
+      000018 75*0B 16         [24]  492 	mov	(_ship_thrust + 2),#0x16
+      00001B 75*0C 44         [24]  493 	mov	(_ship_thrust + 3),#0x44
+                                    494 ;	main.c:51: float ship_mass = 500.0;
+      00001E F5*0D            [12]  495 	mov	_ship_mass,a
+      000020 F5*0E            [12]  496 	mov	(_ship_mass + 1),a
+      000022 75*0F FA         [24]  497 	mov	(_ship_mass + 2),#0xFA
+      000025 75*10 43         [24]  498 	mov	(_ship_mass + 3),#0x43
+                                    499 ;	main.c:52: float height = 1000.0;
+      000028 F5*11            [12]  500 	mov	_height,a
+      00002A F5*12            [12]  501 	mov	(_height + 1),a
+      00002C 75*13 7A         [24]  502 	mov	(_height + 2),#0x7A
+      00002F 75*14 44         [24]  503 	mov	(_height + 3),#0x44
+                                    504 ;	main.c:53: float gravity = 3.7;
+      000032 75*15 CD         [24]  505 	mov	_gravity,#0xCD
+      000035 75*16 CC         [24]  506 	mov	(_gravity + 1),#0xCC
+      000038 75*17 6C         [24]  507 	mov	(_gravity + 2),#0x6C
+      00003B 75*18 40         [24]  508 	mov	(_gravity + 3),#0x40
+                                    509 ;	main.c:54: float fuel = 100.0;
+      00003E F5*19            [12]  510 	mov	_fuel,a
+      000040 F5*1A            [12]  511 	mov	(_fuel + 1),a
+      000042 75*1B C8         [24]  512 	mov	(_fuel + 2),#0xC8
+      000045 75*1C 42         [24]  513 	mov	(_fuel + 3),#0x42
+                                    514 ;	main.c:55: float delta_v = 0.0;
+      000048 F5*1D            [12]  515 	mov	_delta_v,a
+      00004A F5*1E            [12]  516 	mov	(_delta_v + 1),a
+      00004C F5*1F            [12]  517 	mov	(_delta_v + 2),a
+      00004E F5*20            [12]  518 	mov	(_delta_v + 3),a
+                                    519 ;	main.c:56: float delta_d = 0.0;
+      000050 F5*21            [12]  520 	mov	_delta_d,a
+      000052 F5*22            [12]  521 	mov	(_delta_d + 1),a
+      000054 F5*23            [12]  522 	mov	(_delta_d + 2),a
+      000056 F5*24            [12]  523 	mov	(_delta_d + 3),a
+                                    524 ;	main.c:57: float delta_t = 1.0/12.0;
+      000058 75*25 AB         [24]  525 	mov	_delta_t,#0xAB
+      00005B 75*26 AA         [24]  526 	mov	(_delta_t + 1),#0xAA
+      00005E 75*27 AA         [24]  527 	mov	(_delta_t + 2),#0xAA
+      000061 75*28 3D         [24]  528 	mov	(_delta_t + 3),#0x3D
+                                    529 ;	main.c:61: char digit1 = 0;
+                                    530 ;	1-genFromRTrack replaced	mov	_digit1,#0x00
+      000064 F5*31            [12]  531 	mov	_digit1,a
+                                    532 ;	main.c:62: char digit2 = 0;
+                                    533 ;	1-genFromRTrack replaced	mov	_digit2,#0x00
+      000066 F5*32            [12]  534 	mov	_digit2,a
+                                    535 ;	main.c:63: char digit3 = 0;
+                                    536 ;	1-genFromRTrack replaced	mov	_digit3,#0x00
+      000068 F5*33            [12]  537 	mov	_digit3,a
+                                    538 ;	main.c:64: char digit4 = 0;
+                                    539 ;	1-genFromRTrack replaced	mov	_digit4,#0x00
+      00006A F5*34            [12]  540 	mov	_digit4,a
+                                    541 ;	main.c:67: unsigned int n = 0;
+      00006C F5*37            [12]  542 	mov	_n,a
+      00006E F5*38            [12]  543 	mov	(_n + 1),a
+                                    544 ;	main.c:68: unsigned int s = 0;
+      000070 F5*39            [12]  545 	mov	_s,a
+      000072 F5*3A            [12]  546 	mov	(_s + 1),a
+                                    547 ;	main.c:69: __bit l = 1;
+      000074 D2*00            [12]  548 	setb	_l
+                                    549 	.area GSFINAL (CODE)
+      000000 02r00r1E         [24]  550 	ljmp	__sdcc_program_startup
+                                    551 ;--------------------------------------------------------
+                                    552 ; Home
+                                    553 ;--------------------------------------------------------
+                                    554 	.area HOME    (CODE)
+                                    555 	.area HOME    (CODE)
+      00001E                        556 __sdcc_program_startup:
+      00001E 02r04rB0         [24]  557 	ljmp	_main
+                                    558 ;	return from main will return to caller
+                                    559 ;--------------------------------------------------------
+                                    560 ; code
+                                    561 ;--------------------------------------------------------
+                                    562 	.area CSEG    (CODE)
+                                    563 ;------------------------------------------------------------
+                                    564 ;Allocation info for local variables in function 'Timer0Init'
+                                    565 ;------------------------------------------------------------
+                                    566 ;	main.c:75: void Timer0Init()		//5ms@11.0592MHz
+                                    567 ;	-----------------------------------------
+                                    568 ;	 function Timer0Init
+                                    569 ;	-----------------------------------------
+      000000                        570 _Timer0Init:
+                           000007   571 	ar7 = 0x07
+                           000006   572 	ar6 = 0x06
+                           000005   573 	ar5 = 0x05
+                           000004   574 	ar4 = 0x04
+                           000003   575 	ar3 = 0x03
+                           000002   576 	ar2 = 0x02
+                           000001   577 	ar1 = 0x01
+                           000000   578 	ar0 = 0x00
+                                    579 ;	main.c:77: TMOD = 0x11;		//Set timer work mode
+      000000 75 89 11         [24]  580 	mov	_TMOD,#0x11
+                                    581 ;	main.c:78: TL0 = 0x00;		//Initial timer value
+      000003 75 8A 00         [24]  582 	mov	_TL0,#0x00
+                                    583 ;	main.c:79: TH0 = 0x28;		//Initial timer value
+      000006 75 8C 28         [24]  584 	mov	_TH0,#0x28
+                                    585 ;	main.c:80: TL1 = 0x50;
+      000009 75 8B 50         [24]  586 	mov	_TL1,#0x50
+                                    587 ;	main.c:81: TH1 = 0xF0;
+      00000C 75 8D F0         [24]  588 	mov	_TH1,#0xF0
+                                    589 ;	main.c:82: TF0 = 0;		//Clear TF0 flag
+      00000F C2 8D            [12]  590 	clr	_TF0
+                                    591 ;	main.c:83: EA  = 1;
+      000011 D2 AF            [12]  592 	setb	_EA
+                                    593 ;	main.c:84: ET0 = 1;
+      000013 D2 A9            [12]  594 	setb	_ET0
+                                    595 ;	main.c:85: ET1 = 1;
+      000015 D2 AB            [12]  596 	setb	_ET1
+                                    597 ;	main.c:86: IT0 = 1;
+      000017 D2 88            [12]  598 	setb	_IT0
+                                    599 ;	main.c:87: EX0 = 1;
+      000019 D2 A8            [12]  600 	setb	_EX0
+                                    601 ;	main.c:88: TR0 = 1;		//Timer0 start run
+      00001B D2 8C            [12]  602 	setb	_TR0
+      00001D 22               [24]  603 	ret
+                                    604 ;------------------------------------------------------------
+                                    605 ;Allocation info for local variables in function 'delay'
+                                    606 ;------------------------------------------------------------
+                                    607 ;z                         Allocated to registers 
+                                    608 ;x                         Allocated to registers r6 r7 
+                                    609 ;y                         Allocated to registers r4 r5 
+                                    610 ;------------------------------------------------------------
+                                    611 ;	main.c:92: void delay(unsigned int z)
+                                    612 ;	-----------------------------------------
+                                    613 ;	 function delay
+                                    614 ;	-----------------------------------------
+      00001E                        615 _delay:
+      00001E AE 82            [24]  616 	mov	r6,dpl
+      000020 AF 83            [24]  617 	mov	r7,dph
+                                    618 ;	main.c:95: for(x=z;x>0;x--)
+      000022                        619 00106$:
+      000022 EE               [12]  620 	mov	a,r6
+      000023 4F               [12]  621 	orl	a,r7
+      000024 60 1B            [24]  622 	jz	00108$
+                                    623 ;	main.c:96: for(y=50;y>0;y--);
+      000026 7C 32            [12]  624 	mov	r4,#0x32
+      000028 7D 00            [12]  625 	mov	r5,#0x00
+      00002A                        626 00104$:
+      00002A EC               [12]  627 	mov	a,r4
+      00002B 24 FF            [12]  628 	add	a,#0xFF
+      00002D FA               [12]  629 	mov	r2,a
+      00002E ED               [12]  630 	mov	a,r5
+      00002F 34 FF            [12]  631 	addc	a,#0xFF
+      000031 FB               [12]  632 	mov	r3,a
+      000032 8A 04            [24]  633 	mov	ar4,r2
+      000034 8B 05            [24]  634 	mov	ar5,r3
+      000036 EA               [12]  635 	mov	a,r2
+      000037 4B               [12]  636 	orl	a,r3
+      000038 70 F0            [24]  637 	jnz	00104$
+                                    638 ;	main.c:95: for(x=z;x>0;x--)
+      00003A 1E               [12]  639 	dec	r6
+      00003B BE FF 01         [24]  640 	cjne	r6,#0xFF,00129$
+      00003E 1F               [12]  641 	dec	r7
+      00003F                        642 00129$:
+      00003F 80 E1            [24]  643 	sjmp	00106$
+      000041                        644 00108$:
+      000041 22               [24]  645 	ret
+                                    646 ;------------------------------------------------------------
+                                    647 ;Allocation info for local variables in function 'write_com'
+                                    648 ;------------------------------------------------------------
+                                    649 ;com                       Allocated to registers r7 
+                                    650 ;------------------------------------------------------------
+                                    651 ;	main.c:99: void write_com(unsigned char com)
+                                    652 ;	-----------------------------------------
+                                    653 ;	 function write_com
+                                    654 ;	-----------------------------------------
+      000042                        655 _write_com:
+      000042 AF 82            [24]  656 	mov	r7,dpl
+                                    657 ;	main.c:101: lcdrs=0;
+      000044 C2 92            [12]  658 	clr	_P1_2
+                                    659 ;	main.c:102: rw=0;
+      000046 C2 91            [12]  660 	clr	_P1_1
+                                    661 ;	main.c:103: P2=com;
+      000048 8F A0            [24]  662 	mov	_P2,r7
+                                    663 ;	main.c:104: delay(5);
+      00004A 90 00 05         [24]  664 	mov	dptr,#0x0005
+      00004D 12r00r1E         [24]  665 	lcall	_delay
+                                    666 ;	main.c:105: lcden=1;
+      000050 D2 90            [12]  667 	setb	_P1_0
+                                    668 ;	main.c:106: delay(5);
+      000052 90 00 05         [24]  669 	mov	dptr,#0x0005
+      000055 12r00r1E         [24]  670 	lcall	_delay
+                                    671 ;	main.c:107: lcden=0;
+      000058 C2 90            [12]  672 	clr	_P1_0
+      00005A 22               [24]  673 	ret
+                                    674 ;------------------------------------------------------------
+                                    675 ;Allocation info for local variables in function 'write_data'
+                                    676 ;------------------------------------------------------------
+                                    677 ;date                      Allocated to registers r7 
+                                    678 ;------------------------------------------------------------
+                                    679 ;	main.c:110: void write_data(unsigned char date)
+                                    680 ;	-----------------------------------------
+                                    681 ;	 function write_data
+                                    682 ;	-----------------------------------------
+      00005B                        683 _write_data:
+      00005B AF 82            [24]  684 	mov	r7,dpl
+                                    685 ;	main.c:112: lcdrs=1;
+      00005D D2 92            [12]  686 	setb	_P1_2
+                                    687 ;	main.c:113: rw=0;
+      00005F C2 91            [12]  688 	clr	_P1_1
+                                    689 ;	main.c:114: P2=date;
+      000061 8F A0            [24]  690 	mov	_P2,r7
+                                    691 ;	main.c:115: delay(5);
+      000063 90 00 05         [24]  692 	mov	dptr,#0x0005
+      000066 12r00r1E         [24]  693 	lcall	_delay
+                                    694 ;	main.c:116: lcden=1;
+      000069 D2 90            [12]  695 	setb	_P1_0
+                                    696 ;	main.c:117: delay(5);
+      00006B 90 00 05         [24]  697 	mov	dptr,#0x0005
+      00006E 12r00r1E         [24]  698 	lcall	_delay
+                                    699 ;	main.c:118: lcden=0;
+      000071 C2 90            [12]  700 	clr	_P1_0
+      000073 22               [24]  701 	ret
+                                    702 ;------------------------------------------------------------
+                                    703 ;Allocation info for local variables in function 'init'
+                                    704 ;------------------------------------------------------------
+                                    705 ;	main.c:121: void init()
+                                    706 ;	-----------------------------------------
+                                    707 ;	 function init
+                                    708 ;	-----------------------------------------
+      000074                        709 _init:
+                                    710 ;	main.c:123: lcden=0;
+      000074 C2 90            [12]  711 	clr	_P1_0
+                                    712 ;	main.c:124: write_com(0x38);
+      000076 75 82 38         [24]  713 	mov	dpl,#0x38
+      000079 12r00r42         [24]  714 	lcall	_write_com
+                                    715 ;	main.c:125: write_com(0x0f);
+      00007C 75 82 0F         [24]  716 	mov	dpl,#0x0F
+      00007F 12r00r42         [24]  717 	lcall	_write_com
+                                    718 ;	main.c:126: write_com(0x06);
+      000082 75 82 06         [24]  719 	mov	dpl,#0x06
+      000085 12r00r42         [24]  720 	lcall	_write_com
+                                    721 ;	main.c:127: write_com(0X01);
+      000088 75 82 01         [24]  722 	mov	dpl,#0x01
+      00008B 12r00r42         [24]  723 	lcall	_write_com
+                                    724 ;	main.c:128: write_com(0X80); 
+      00008E 75 82 80         [24]  725 	mov	dpl,#0x80
+      000091 02r00r42         [24]  726 	ljmp	_write_com
+                                    727 ;------------------------------------------------------------
+                                    728 ;Allocation info for local variables in function 'start'
+                                    729 ;------------------------------------------------------------
+                                    730 ;i                         Allocated to registers r7 
+                                    731 ;------------------------------------------------------------
+                                    732 ;	main.c:131: void start()
+                                    733 ;	-----------------------------------------
+                                    734 ;	 function start
+                                    735 ;	-----------------------------------------
+      000094                        736 _start:
+                                    737 ;	main.c:134: for (i=0;i<9;i++)
+      000094 7F 00            [12]  738 	mov	r7,#0x00
+      000096                        739 00112$:
+                                    740 ;	main.c:136: write_data(start1[i]);
+      000096 EF               [12]  741 	mov	a,r7
+      000097 90r00r21         [24]  742 	mov	dptr,#_start1
+      00009A 93               [24]  743 	movc	a,@a+dptr
+      00009B F5 82            [12]  744 	mov	dpl,a
+      00009D C0 07            [24]  745 	push	ar7
+      00009F 12r00r5B         [24]  746 	lcall	_write_data
+                                    747 ;	main.c:137: delay(100);
+      0000A2 90 00 64         [24]  748 	mov	dptr,#0x0064
+      0000A5 12r00r1E         [24]  749 	lcall	_delay
+      0000A8 D0 07            [24]  750 	pop	ar7
+                                    751 ;	main.c:134: for (i=0;i<9;i++)
+      0000AA 0F               [12]  752 	inc	r7
+      0000AB C3               [12]  753 	clr	c
+      0000AC EF               [12]  754 	mov	a,r7
+      0000AD 64 80            [12]  755 	xrl	a,#0x80
+      0000AF 94 89            [12]  756 	subb	a,#0x89
+      0000B1 40 E3            [24]  757 	jc	00112$
+                                    758 ;	main.c:139: delay(500);
+      0000B3 90 01 F4         [24]  759 	mov	dptr,#0x01F4
+      0000B6 12r00r1E         [24]  760 	lcall	_delay
+                                    761 ;	main.c:140: write_com(0X80+0x40);
+      0000B9 75 82 C0         [24]  762 	mov	dpl,#0xC0
+      0000BC 12r00r42         [24]  763 	lcall	_write_com
+                                    764 ;	main.c:141: for (i=0;i<17;i++)
+      0000BF 7F 00            [12]  765 	mov	r7,#0x00
+      0000C1                        766 00114$:
+                                    767 ;	main.c:143: write_data(start2[i]);
+      0000C1 EF               [12]  768 	mov	a,r7
+      0000C2 90r00r2A         [24]  769 	mov	dptr,#_start2
+      0000C5 93               [24]  770 	movc	a,@a+dptr
+      0000C6 F5 82            [12]  771 	mov	dpl,a
+      0000C8 C0 07            [24]  772 	push	ar7
+      0000CA 12r00r5B         [24]  773 	lcall	_write_data
+                                    774 ;	main.c:144: delay(100);
+      0000CD 90 00 64         [24]  775 	mov	dptr,#0x0064
+      0000D0 12r00r1E         [24]  776 	lcall	_delay
+      0000D3 D0 07            [24]  777 	pop	ar7
+                                    778 ;	main.c:141: for (i=0;i<17;i++)
+      0000D5 0F               [12]  779 	inc	r7
+      0000D6 C3               [12]  780 	clr	c
+      0000D7 EF               [12]  781 	mov	a,r7
+      0000D8 64 80            [12]  782 	xrl	a,#0x80
+      0000DA 94 91            [12]  783 	subb	a,#0x91
+      0000DC 40 E3            [24]  784 	jc	00114$
+                                    785 ;	main.c:146: delay(500);
+      0000DE 90 01 F4         [24]  786 	mov	dptr,#0x01F4
+      0000E1 12r00r1E         [24]  787 	lcall	_delay
+                                    788 ;	main.c:147: write_com(0x01);
+      0000E4 75 82 01         [24]  789 	mov	dpl,#0x01
+      0000E7 12r00r42         [24]  790 	lcall	_write_com
+                                    791 ;	main.c:148: for (i=0;i<17;i++)
+      0000EA 7F 00            [12]  792 	mov	r7,#0x00
+      0000EC                        793 00116$:
+                                    794 ;	main.c:150: write_data(start3[i]);
+      0000EC EF               [12]  795 	mov	a,r7
+      0000ED 90r00r3B         [24]  796 	mov	dptr,#_start3
+      0000F0 93               [24]  797 	movc	a,@a+dptr
+      0000F1 F5 82            [12]  798 	mov	dpl,a
+      0000F3 C0 07            [24]  799 	push	ar7
+      0000F5 12r00r5B         [24]  800 	lcall	_write_data
+                                    801 ;	main.c:151: delay(100);
+      0000F8 90 00 64         [24]  802 	mov	dptr,#0x0064
+      0000FB 12r00r1E         [24]  803 	lcall	_delay
+      0000FE D0 07            [24]  804 	pop	ar7
+                                    805 ;	main.c:148: for (i=0;i<17;i++)
+      000100 0F               [12]  806 	inc	r7
+      000101 C3               [12]  807 	clr	c
+      000102 EF               [12]  808 	mov	a,r7
+      000103 64 80            [12]  809 	xrl	a,#0x80
+      000105 94 91            [12]  810 	subb	a,#0x91
+      000107 40 E3            [24]  811 	jc	00116$
+                                    812 ;	main.c:153: delay(500);
+      000109 90 01 F4         [24]  813 	mov	dptr,#0x01F4
+      00010C 12r00r1E         [24]  814 	lcall	_delay
+                                    815 ;	main.c:154: write_com(0X80+0x40);
+      00010F 75 82 C0         [24]  816 	mov	dpl,#0xC0
+      000112 12r00r42         [24]  817 	lcall	_write_com
+                                    818 ;	main.c:155: for (i=0;i<17;i++)
+      000115 7F 00            [12]  819 	mov	r7,#0x00
+      000117                        820 00118$:
+                                    821 ;	main.c:157: write_data(start4[i]);
+      000117 EF               [12]  822 	mov	a,r7
+      000118 90r00r4C         [24]  823 	mov	dptr,#_start4
+      00011B 93               [24]  824 	movc	a,@a+dptr
+      00011C F5 82            [12]  825 	mov	dpl,a
+      00011E C0 07            [24]  826 	push	ar7
+      000120 12r00r5B         [24]  827 	lcall	_write_data
+                                    828 ;	main.c:158: delay(100);
+      000123 90 00 64         [24]  829 	mov	dptr,#0x0064
+      000126 12r00r1E         [24]  830 	lcall	_delay
+      000129 D0 07            [24]  831 	pop	ar7
+                                    832 ;	main.c:155: for (i=0;i<17;i++)
+      00012B 0F               [12]  833 	inc	r7
+      00012C C3               [12]  834 	clr	c
+      00012D EF               [12]  835 	mov	a,r7
+      00012E 64 80            [12]  836 	xrl	a,#0x80
+      000130 94 91            [12]  837 	subb	a,#0x91
+      000132 40 E3            [24]  838 	jc	00118$
+                                    839 ;	main.c:160: delay(500);
+      000134 90 01 F4         [24]  840 	mov	dptr,#0x01F4
+      000137 12r00r1E         [24]  841 	lcall	_delay
+                                    842 ;	main.c:161: write_com(0x01);
+      00013A 75 82 01         [24]  843 	mov	dpl,#0x01
+      00013D 12r00r42         [24]  844 	lcall	_write_com
+                                    845 ;	main.c:162: for (i=0;i<17;i++)
+      000140 7F 00            [12]  846 	mov	r7,#0x00
+      000142                        847 00120$:
+                                    848 ;	main.c:164: write_data(start5[i]);
+      000142 EF               [12]  849 	mov	a,r7
+      000143 90r00r5D         [24]  850 	mov	dptr,#_start5
+      000146 93               [24]  851 	movc	a,@a+dptr
+      000147 F5 82            [12]  852 	mov	dpl,a
+      000149 C0 07            [24]  853 	push	ar7
+      00014B 12r00r5B         [24]  854 	lcall	_write_data
+                                    855 ;	main.c:165: delay(100);
+      00014E 90 00 64         [24]  856 	mov	dptr,#0x0064
+      000151 12r00r1E         [24]  857 	lcall	_delay
+      000154 D0 07            [24]  858 	pop	ar7
+                                    859 ;	main.c:162: for (i=0;i<17;i++)
+      000156 0F               [12]  860 	inc	r7
+      000157 C3               [12]  861 	clr	c
+      000158 EF               [12]  862 	mov	a,r7
+      000159 64 80            [12]  863 	xrl	a,#0x80
+      00015B 94 91            [12]  864 	subb	a,#0x91
+      00015D 40 E3            [24]  865 	jc	00120$
+                                    866 ;	main.c:167: delay(500);
+      00015F 90 01 F4         [24]  867 	mov	dptr,#0x01F4
+      000162 12r00r1E         [24]  868 	lcall	_delay
+                                    869 ;	main.c:168: write_com(0X80+0x40);
+      000165 75 82 C0         [24]  870 	mov	dpl,#0xC0
+      000168 12r00r42         [24]  871 	lcall	_write_com
+                                    872 ;	main.c:169: for (i=0;i<17;i++)
+      00016B 7F 00            [12]  873 	mov	r7,#0x00
+      00016D                        874 00122$:
+                                    875 ;	main.c:171: write_data(start6[i]);
+      00016D EF               [12]  876 	mov	a,r7
+      00016E 90r00r6E         [24]  877 	mov	dptr,#_start6
+      000171 93               [24]  878 	movc	a,@a+dptr
+      000172 F5 82            [12]  879 	mov	dpl,a
+      000174 C0 07            [24]  880 	push	ar7
+      000176 12r00r5B         [24]  881 	lcall	_write_data
+                                    882 ;	main.c:172: delay(100);
+      000179 90 00 64         [24]  883 	mov	dptr,#0x0064
+      00017C 12r00r1E         [24]  884 	lcall	_delay
+      00017F D0 07            [24]  885 	pop	ar7
+                                    886 ;	main.c:169: for (i=0;i<17;i++)
+      000181 0F               [12]  887 	inc	r7
+      000182 C3               [12]  888 	clr	c
+      000183 EF               [12]  889 	mov	a,r7
+      000184 64 80            [12]  890 	xrl	a,#0x80
+      000186 94 91            [12]  891 	subb	a,#0x91
+      000188 40 E3            [24]  892 	jc	00122$
+                                    893 ;	main.c:174: delay(500);
+      00018A 90 01 F4         [24]  894 	mov	dptr,#0x01F4
+      00018D 12r00r1E         [24]  895 	lcall	_delay
+                                    896 ;	main.c:175: write_com(0x01);
+      000190 75 82 01         [24]  897 	mov	dpl,#0x01
+      000193 12r00r42         [24]  898 	lcall	_write_com
+                                    899 ;	main.c:176: for (i=0;i<13;i++)
+      000196 7F 00            [12]  900 	mov	r7,#0x00
+      000198                        901 00124$:
+                                    902 ;	main.c:178: write_data(start7[i]);
+      000198 EF               [12]  903 	mov	a,r7
+      000199 90r00r7F         [24]  904 	mov	dptr,#_start7
+      00019C 93               [24]  905 	movc	a,@a+dptr
+      00019D F5 82            [12]  906 	mov	dpl,a
+      00019F C0 07            [24]  907 	push	ar7
+      0001A1 12r00r5B         [24]  908 	lcall	_write_data
+                                    909 ;	main.c:179: delay(100);
+      0001A4 90 00 64         [24]  910 	mov	dptr,#0x0064
+      0001A7 12r00r1E         [24]  911 	lcall	_delay
+      0001AA D0 07            [24]  912 	pop	ar7
+                                    913 ;	main.c:176: for (i=0;i<13;i++)
+      0001AC 0F               [12]  914 	inc	r7
+      0001AD C3               [12]  915 	clr	c
+      0001AE EF               [12]  916 	mov	a,r7
+      0001AF 64 80            [12]  917 	xrl	a,#0x80
+      0001B1 94 8D            [12]  918 	subb	a,#0x8d
+      0001B3 40 E3            [24]  919 	jc	00124$
+                                    920 ;	main.c:181: delay(500);
+      0001B5 90 01 F4         [24]  921 	mov	dptr,#0x01F4
+      0001B8 12r00r1E         [24]  922 	lcall	_delay
+                                    923 ;	main.c:182: write_com(0X80+0x40);
+      0001BB 75 82 C0         [24]  924 	mov	dpl,#0xC0
+      0001BE 12r00r42         [24]  925 	lcall	_write_com
+                                    926 ;	main.c:183: for (i=0;i<13;i++)
+      0001C1 7F 00            [12]  927 	mov	r7,#0x00
+      0001C3                        928 00126$:
+                                    929 ;	main.c:185: write_data(start8[i]);
+      0001C3 EF               [12]  930 	mov	a,r7
+      0001C4 90r00r8D         [24]  931 	mov	dptr,#_start8
+      0001C7 93               [24]  932 	movc	a,@a+dptr
+      0001C8 F5 82            [12]  933 	mov	dpl,a
+      0001CA C0 07            [24]  934 	push	ar7
+      0001CC 12r00r5B         [24]  935 	lcall	_write_data
+                                    936 ;	main.c:186: delay(100);
+      0001CF 90 00 64         [24]  937 	mov	dptr,#0x0064
+      0001D2 12r00r1E         [24]  938 	lcall	_delay
+      0001D5 D0 07            [24]  939 	pop	ar7
+                                    940 ;	main.c:183: for (i=0;i<13;i++)
+      0001D7 0F               [12]  941 	inc	r7
+      0001D8 C3               [12]  942 	clr	c
+      0001D9 EF               [12]  943 	mov	a,r7
+      0001DA 64 80            [12]  944 	xrl	a,#0x80
+      0001DC 94 8D            [12]  945 	subb	a,#0x8d
+      0001DE 40 E3            [24]  946 	jc	00126$
+                                    947 ;	main.c:188: delay(500);
+      0001E0 90 01 F4         [24]  948 	mov	dptr,#0x01F4
+      0001E3 12r00r1E         [24]  949 	lcall	_delay
+                                    950 ;	main.c:189: write_com(0x01);
+      0001E6 75 82 01         [24]  951 	mov	dpl,#0x01
+      0001E9 12r00r42         [24]  952 	lcall	_write_com
+                                    953 ;	main.c:190: for (i=0;i<17;i++)
+      0001EC 7F 00            [12]  954 	mov	r7,#0x00
+      0001EE                        955 00128$:
+                                    956 ;	main.c:192: write_data(start9[i]);
+      0001EE EF               [12]  957 	mov	a,r7
+      0001EF 90r00r9A         [24]  958 	mov	dptr,#_start9
+      0001F2 93               [24]  959 	movc	a,@a+dptr
+      0001F3 F5 82            [12]  960 	mov	dpl,a
+      0001F5 C0 07            [24]  961 	push	ar7
+      0001F7 12r00r5B         [24]  962 	lcall	_write_data
+                                    963 ;	main.c:193: delay(100);
+      0001FA 90 00 64         [24]  964 	mov	dptr,#0x0064
+      0001FD 12r00r1E         [24]  965 	lcall	_delay
+      000200 D0 07            [24]  966 	pop	ar7
+                                    967 ;	main.c:190: for (i=0;i<17;i++)
+      000202 0F               [12]  968 	inc	r7
+      000203 C3               [12]  969 	clr	c
+      000204 EF               [12]  970 	mov	a,r7
+      000205 64 80            [12]  971 	xrl	a,#0x80
+      000207 94 91            [12]  972 	subb	a,#0x91
+      000209 40 E3            [24]  973 	jc	00128$
+                                    974 ;	main.c:195: delay(500);
+      00020B 90 01 F4         [24]  975 	mov	dptr,#0x01F4
+      00020E 12r00r1E         [24]  976 	lcall	_delay
+                                    977 ;	main.c:196: write_com(0X80+0x40);
+      000211 75 82 C0         [24]  978 	mov	dpl,#0xC0
+      000214 12r00r42         [24]  979 	lcall	_write_com
+                                    980 ;	main.c:197: for (i=0;i<17;i++)
+      000217 7F 00            [12]  981 	mov	r7,#0x00
+      000219                        982 00130$:
+                                    983 ;	main.c:199: write_data(start10[i]);
+      000219 EF               [12]  984 	mov	a,r7
+      00021A 90r00rAD         [24]  985 	mov	dptr,#_start10
+      00021D 93               [24]  986 	movc	a,@a+dptr
+      00021E F5 82            [12]  987 	mov	dpl,a
+      000220 C0 07            [24]  988 	push	ar7
+      000222 12r00r5B         [24]  989 	lcall	_write_data
+                                    990 ;	main.c:200: delay(100);
+      000225 90 00 64         [24]  991 	mov	dptr,#0x0064
+      000228 12r00r1E         [24]  992 	lcall	_delay
+      00022B D0 07            [24]  993 	pop	ar7
+                                    994 ;	main.c:197: for (i=0;i<17;i++)
+      00022D 0F               [12]  995 	inc	r7
+      00022E C3               [12]  996 	clr	c
+      00022F EF               [12]  997 	mov	a,r7
+      000230 64 80            [12]  998 	xrl	a,#0x80
+      000232 94 91            [12]  999 	subb	a,#0x91
+      000234 40 E3            [24] 1000 	jc	00130$
+                                   1001 ;	main.c:202: delay(500);
+      000236 90 01 F4         [24] 1002 	mov	dptr,#0x01F4
+      000239 12r00r1E         [24] 1003 	lcall	_delay
+                                   1004 ;	main.c:203: write_com(0x01);
+      00023C 75 82 01         [24] 1005 	mov	dpl,#0x01
+      00023F 12r00r42         [24] 1006 	lcall	_write_com
+                                   1007 ;	main.c:204: for (i=0;i<12;i++)
+      000242 7F 00            [12] 1008 	mov	r7,#0x00
+      000244                       1009 00132$:
+                                   1010 ;	main.c:206: write_data(start11[i]);
+      000244 EF               [12] 1011 	mov	a,r7
+      000245 90r00rBE         [24] 1012 	mov	dptr,#_start11
+      000248 93               [24] 1013 	movc	a,@a+dptr
+      000249 F5 82            [12] 1014 	mov	dpl,a
+      00024B C0 07            [24] 1015 	push	ar7
+      00024D 12r00r5B         [24] 1016 	lcall	_write_data
+                                   1017 ;	main.c:207: delay(100);
+      000250 90 00 64         [24] 1018 	mov	dptr,#0x0064
+      000253 12r00r1E         [24] 1019 	lcall	_delay
+      000256 D0 07            [24] 1020 	pop	ar7
+                                   1021 ;	main.c:204: for (i=0;i<12;i++)
+      000258 0F               [12] 1022 	inc	r7
+      000259 C3               [12] 1023 	clr	c
+      00025A EF               [12] 1024 	mov	a,r7
+      00025B 64 80            [12] 1025 	xrl	a,#0x80
+      00025D 94 8C            [12] 1026 	subb	a,#0x8c
+      00025F 40 E3            [24] 1027 	jc	00132$
+                                   1028 ;	main.c:209: delay(800);
+      000261 90 03 20         [24] 1029 	mov	dptr,#0x0320
+      000264 12r00r1E         [24] 1030 	lcall	_delay
+                                   1031 ;	main.c:210: write_com(0x01);
+      000267 75 82 01         [24] 1032 	mov	dpl,#0x01
+      00026A 02r00r42         [24] 1033 	ljmp	_write_com
+                                   1034 ;------------------------------------------------------------
+                                   1035 ;Allocation info for local variables in function 'fuelleak'
+                                   1036 ;------------------------------------------------------------
+                                   1037 ;q                         Allocated to registers r7 
+                                   1038 ;------------------------------------------------------------
+                                   1039 ;	main.c:213: void fuelleak()
+                                   1040 ;	-----------------------------------------
+                                   1041 ;	 function fuelleak
+                                   1042 ;	-----------------------------------------
+      00026D                       1043 _fuelleak:
+                                   1044 ;	main.c:216: write_com(0x01);
+      00026D 75 82 01         [24] 1045 	mov	dpl,#0x01
+      000270 12r00r42         [24] 1046 	lcall	_write_com
+                                   1047 ;	main.c:217: for (q=0;q<17;q++)
+      000273 7F 00            [12] 1048 	mov	r7,#0x00
+      000275                       1049 00104$:
+                                   1050 ;	main.c:219: write_data(leak1[q]);
+      000275 EF               [12] 1051 	mov	a,r7
+      000276 90r01r4C         [24] 1052 	mov	dptr,#_leak1
+      000279 93               [24] 1053 	movc	a,@a+dptr
+      00027A F5 82            [12] 1054 	mov	dpl,a
+      00027C C0 07            [24] 1055 	push	ar7
+      00027E 12r00r5B         [24] 1056 	lcall	_write_data
+                                   1057 ;	main.c:220: delay(100);
+      000281 90 00 64         [24] 1058 	mov	dptr,#0x0064
+      000284 12r00r1E         [24] 1059 	lcall	_delay
+      000287 D0 07            [24] 1060 	pop	ar7
+                                   1061 ;	main.c:217: for (q=0;q<17;q++)
+      000289 0F               [12] 1062 	inc	r7
+      00028A BF 11 00         [24] 1063 	cjne	r7,#0x11,00133$
+      00028D                       1064 00133$:
+      00028D 40 E6            [24] 1065 	jc	00104$
+                                   1066 ;	main.c:222: delay(500);
+      00028F 90 01 F4         [24] 1067 	mov	dptr,#0x01F4
+      000292 12r00r1E         [24] 1068 	lcall	_delay
+                                   1069 ;	main.c:223: write_com(0X80+0x40);
+      000295 75 82 C0         [24] 1070 	mov	dpl,#0xC0
+      000298 12r00r42         [24] 1071 	lcall	_write_com
+                                   1072 ;	main.c:224: for (q=0;q<16;q++)
+      00029B 7F 00            [12] 1073 	mov	r7,#0x00
+      00029D                       1074 00106$:
+                                   1075 ;	main.c:226: write_data(leak2[q]);
+      00029D EF               [12] 1076 	mov	a,r7
+      00029E 90r01r5E         [24] 1077 	mov	dptr,#_leak2
+      0002A1 93               [24] 1078 	movc	a,@a+dptr
+      0002A2 F5 82            [12] 1079 	mov	dpl,a
+      0002A4 C0 07            [24] 1080 	push	ar7
+      0002A6 12r00r5B         [24] 1081 	lcall	_write_data
+                                   1082 ;	main.c:227: delay(100);
+      0002A9 90 00 64         [24] 1083 	mov	dptr,#0x0064
+      0002AC 12r00r1E         [24] 1084 	lcall	_delay
+      0002AF D0 07            [24] 1085 	pop	ar7
+                                   1086 ;	main.c:224: for (q=0;q<16;q++)
+      0002B1 0F               [12] 1087 	inc	r7
+      0002B2 BF 10 00         [24] 1088 	cjne	r7,#0x10,00135$
+      0002B5                       1089 00135$:
+      0002B5 40 E6            [24] 1090 	jc	00106$
+                                   1091 ;	main.c:229: delay(500);
+      0002B7 90 01 F4         [24] 1092 	mov	dptr,#0x01F4
+      0002BA 12r00r1E         [24] 1093 	lcall	_delay
+                                   1094 ;	main.c:230: write_com(0x01);
+      0002BD 75 82 01         [24] 1095 	mov	dpl,#0x01
+      0002C0 12r00r42         [24] 1096 	lcall	_write_com
+                                   1097 ;	main.c:231: for (q=0;q<16;q++)
+      0002C3 7F 00            [12] 1098 	mov	r7,#0x00
+      0002C5                       1099 00108$:
+                                   1100 ;	main.c:233: write_data(leak3[q]);
+      0002C5 EF               [12] 1101 	mov	a,r7
+      0002C6 90r01r6F         [24] 1102 	mov	dptr,#_leak3
+      0002C9 93               [24] 1103 	movc	a,@a+dptr
+      0002CA F5 82            [12] 1104 	mov	dpl,a
+      0002CC C0 07            [24] 1105 	push	ar7
+      0002CE 12r00r5B         [24] 1106 	lcall	_write_data
+                                   1107 ;	main.c:234: delay(100);
+      0002D1 90 00 64         [24] 1108 	mov	dptr,#0x0064
+      0002D4 12r00r1E         [24] 1109 	lcall	_delay
+      0002D7 D0 07            [24] 1110 	pop	ar7
+                                   1111 ;	main.c:231: for (q=0;q<16;q++)
+      0002D9 0F               [12] 1112 	inc	r7
+      0002DA BF 10 00         [24] 1113 	cjne	r7,#0x10,00137$
+      0002DD                       1114 00137$:
+      0002DD 40 E6            [24] 1115 	jc	00108$
+                                   1116 ;	main.c:236: delay(8);
+      0002DF 90 00 08         [24] 1117 	mov	dptr,#0x0008
+      0002E2 12r00r1E         [24] 1118 	lcall	_delay
+                                   1119 ;	main.c:237: fuel = fuel - 20.0;
+      0002E5 E4               [12] 1120 	clr	a
+      0002E6 C0 E0            [24] 1121 	push	acc
+      0002E8 C0 E0            [24] 1122 	push	acc
+      0002EA 74 A0            [12] 1123 	mov	a,#0xA0
+      0002EC C0 E0            [24] 1124 	push	acc
+      0002EE 23               [12] 1125 	rl	a
+      0002EF C0 E0            [24] 1126 	push	acc
+      0002F1 85*19 82         [24] 1127 	mov	dpl,_fuel
+      0002F4 85*1A 83         [24] 1128 	mov	dph,(_fuel + 1)
+      0002F7 85*1B F0         [24] 1129 	mov	b,(_fuel + 2)
+      0002FA E5*1C            [12] 1130 	mov	a,(_fuel + 3)
+      0002FC 12r00r00         [24] 1131 	lcall	___fssub
+      0002FF 85 82*19         [24] 1132 	mov	_fuel,dpl
+      000302 85 83*1A         [24] 1133 	mov	(_fuel + 1),dph
+      000305 85 F0*1B         [24] 1134 	mov	(_fuel + 2),b
+      000308 F5*1C            [12] 1135 	mov	(_fuel + 3),a
+      00030A E5 81            [12] 1136 	mov	a,sp
+      00030C 24 FC            [12] 1137 	add	a,#0xfc
+      00030E F5 81            [12] 1138 	mov	sp,a
+                                   1139 ;	main.c:238: write_com(0x01);
+      000310 75 82 01         [24] 1140 	mov	dpl,#0x01
+      000313 02r00r42         [24] 1141 	ljmp	_write_com
+                                   1142 ;------------------------------------------------------------
+                                   1143 ;Allocation info for local variables in function 'turb'
+                                   1144 ;------------------------------------------------------------
+                                   1145 ;t                         Allocated to registers r7 
+                                   1146 ;------------------------------------------------------------
+                                   1147 ;	main.c:241: void turb()
+                                   1148 ;	-----------------------------------------
+                                   1149 ;	 function turb
+                                   1150 ;	-----------------------------------------
+      000316                       1151 _turb:
+                                   1152 ;	main.c:244: write_com(0x01);
+      000316 75 82 01         [24] 1153 	mov	dpl,#0x01
+      000319 12r00r42         [24] 1154 	lcall	_write_com
+                                   1155 ;	main.c:245: for (t=0;t<17;t++)
+      00031C 7F 00            [12] 1156 	mov	r7,#0x00
+      00031E                       1157 00104$:
+                                   1158 ;	main.c:247: write_data(turb1[t]);
+      00031E EF               [12] 1159 	mov	a,r7
+      00031F 90r01r18         [24] 1160 	mov	dptr,#_turb1
+      000322 93               [24] 1161 	movc	a,@a+dptr
+      000323 F5 82            [12] 1162 	mov	dpl,a
+      000325 C0 07            [24] 1163 	push	ar7
+      000327 12r00r5B         [24] 1164 	lcall	_write_data
+                                   1165 ;	main.c:248: delay(100);
+      00032A 90 00 64         [24] 1166 	mov	dptr,#0x0064
+      00032D 12r00r1E         [24] 1167 	lcall	_delay
+      000330 D0 07            [24] 1168 	pop	ar7
+                                   1169 ;	main.c:245: for (t=0;t<17;t++)
+      000332 0F               [12] 1170 	inc	r7
+      000333 BF 11 00         [24] 1171 	cjne	r7,#0x11,00133$
+      000336                       1172 00133$:
+      000336 40 E6            [24] 1173 	jc	00104$
+                                   1174 ;	main.c:250: delay(500);
+      000338 90 01 F4         [24] 1175 	mov	dptr,#0x01F4
+      00033B 12r00r1E         [24] 1176 	lcall	_delay
+                                   1177 ;	main.c:251: write_com(0X80+0x40);
+      00033E 75 82 C0         [24] 1178 	mov	dpl,#0xC0
+      000341 12r00r42         [24] 1179 	lcall	_write_com
+                                   1180 ;	main.c:252: for (t=0;t<16;t++)
+      000344 7F 00            [12] 1181 	mov	r7,#0x00
+      000346                       1182 00106$:
+                                   1183 ;	main.c:254: write_data(turb2[t]);
+      000346 EF               [12] 1184 	mov	a,r7
+      000347 90r01r2A         [24] 1185 	mov	dptr,#_turb2
+      00034A 93               [24] 1186 	movc	a,@a+dptr
+      00034B F5 82            [12] 1187 	mov	dpl,a
+      00034D C0 07            [24] 1188 	push	ar7
+      00034F 12r00r5B         [24] 1189 	lcall	_write_data
+                                   1190 ;	main.c:255: delay(100);
+      000352 90 00 64         [24] 1191 	mov	dptr,#0x0064
+      000355 12r00r1E         [24] 1192 	lcall	_delay
+      000358 D0 07            [24] 1193 	pop	ar7
+                                   1194 ;	main.c:252: for (t=0;t<16;t++)
+      00035A 0F               [12] 1195 	inc	r7
+      00035B BF 10 00         [24] 1196 	cjne	r7,#0x10,00135$
+      00035E                       1197 00135$:
+      00035E 40 E6            [24] 1198 	jc	00106$
+                                   1199 ;	main.c:257: delay(500);
+      000360 90 01 F4         [24] 1200 	mov	dptr,#0x01F4
+      000363 12r00r1E         [24] 1201 	lcall	_delay
+                                   1202 ;	main.c:258: write_com(0x01);
+      000366 75 82 01         [24] 1203 	mov	dpl,#0x01
+      000369 12r00r42         [24] 1204 	lcall	_write_com
+                                   1205 ;	main.c:259: for (t=0;t<16;t++)
+      00036C 7F 00            [12] 1206 	mov	r7,#0x00
+      00036E                       1207 00108$:
+                                   1208 ;	main.c:261: write_data(turb3[t]);
+      00036E EF               [12] 1209 	mov	a,r7
+      00036F 90r01r3B         [24] 1210 	mov	dptr,#_turb3
+      000372 93               [24] 1211 	movc	a,@a+dptr
+      000373 F5 82            [12] 1212 	mov	dpl,a
+      000375 C0 07            [24] 1213 	push	ar7
+      000377 12r00r5B         [24] 1214 	lcall	_write_data
+                                   1215 ;	main.c:262: delay(100);
+      00037A 90 00 64         [24] 1216 	mov	dptr,#0x0064
+      00037D 12r00r1E         [24] 1217 	lcall	_delay
+      000380 D0 07            [24] 1218 	pop	ar7
+                                   1219 ;	main.c:259: for (t=0;t<16;t++)
+      000382 0F               [12] 1220 	inc	r7
+      000383 BF 10 00         [24] 1221 	cjne	r7,#0x10,00137$
+      000386                       1222 00137$:
+      000386 40 E6            [24] 1223 	jc	00108$
+                                   1224 ;	main.c:264: delay(800);
+      000388 90 03 20         [24] 1225 	mov	dptr,#0x0320
+      00038B 12r00r1E         [24] 1226 	lcall	_delay
+                                   1227 ;	main.c:265: gravity = gravity + 0.5;
+      00038E E4               [12] 1228 	clr	a
+      00038F C0 E0            [24] 1229 	push	acc
+      000391 C0 E0            [24] 1230 	push	acc
+      000393 C0 E0            [24] 1231 	push	acc
+      000395 74 3F            [12] 1232 	mov	a,#0x3F
+      000397 C0 E0            [24] 1233 	push	acc
+      000399 85*15 82         [24] 1234 	mov	dpl,_gravity
+      00039C 85*16 83         [24] 1235 	mov	dph,(_gravity + 1)
+      00039F 85*17 F0         [24] 1236 	mov	b,(_gravity + 2)
+      0003A2 E5*18            [12] 1237 	mov	a,(_gravity + 3)
+      0003A4 12r00r00         [24] 1238 	lcall	___fsadd
+      0003A7 85 82*15         [24] 1239 	mov	_gravity,dpl
+      0003AA 85 83*16         [24] 1240 	mov	(_gravity + 1),dph
+      0003AD 85 F0*17         [24] 1241 	mov	(_gravity + 2),b
+      0003B0 F5*18            [12] 1242 	mov	(_gravity + 3),a
+      0003B2 E5 81            [12] 1243 	mov	a,sp
+      0003B4 24 FC            [12] 1244 	add	a,#0xfc
+      0003B6 F5 81            [12] 1245 	mov	sp,a
+                                   1246 ;	main.c:266: write_com(0x01);
+      0003B8 75 82 01         [24] 1247 	mov	dpl,#0x01
+      0003BB 02r00r42         [24] 1248 	ljmp	_write_com
+                                   1249 ;------------------------------------------------------------
+                                   1250 ;Allocation info for local variables in function 'enginepower'
+                                   1251 ;------------------------------------------------------------
+                                   1252 ;w                         Allocated to registers r7 
+                                   1253 ;------------------------------------------------------------
+                                   1254 ;	main.c:269: void enginepower()
+                                   1255 ;	-----------------------------------------
+                                   1256 ;	 function enginepower
+                                   1257 ;	-----------------------------------------
+      0003BE                       1258 _enginepower:
+                                   1259 ;	main.c:272: write_com(0x01);
+      0003BE 75 82 01         [24] 1260 	mov	dpl,#0x01
+      0003C1 12r00r42         [24] 1261 	lcall	_write_com
+                                   1262 ;	main.c:273: for (w=0;w<17;w++)
+      0003C4 7F 00            [12] 1263 	mov	r7,#0x00
+      0003C6                       1264 00106$:
+                                   1265 ;	main.c:275: write_data(enginep1[w]);
+      0003C6 EF               [12] 1266 	mov	a,r7
+      0003C7 90r00rCA         [24] 1267 	mov	dptr,#_enginep1
+      0003CA 93               [24] 1268 	movc	a,@a+dptr
+      0003CB F5 82            [12] 1269 	mov	dpl,a
+      0003CD C0 07            [24] 1270 	push	ar7
+      0003CF 12r00r5B         [24] 1271 	lcall	_write_data
+                                   1272 ;	main.c:276: delay(100);
+      0003D2 90 00 64         [24] 1273 	mov	dptr,#0x0064
+      0003D5 12r00r1E         [24] 1274 	lcall	_delay
+      0003D8 D0 07            [24] 1275 	pop	ar7
+                                   1276 ;	main.c:273: for (w=0;w<17;w++)
+      0003DA 0F               [12] 1277 	inc	r7
+      0003DB BF 11 00         [24] 1278 	cjne	r7,#0x11,00153$
+      0003DE                       1279 00153$:
+      0003DE 40 E6            [24] 1280 	jc	00106$
+                                   1281 ;	main.c:278: delay(500);
+      0003E0 90 01 F4         [24] 1282 	mov	dptr,#0x01F4
+      0003E3 12r00r1E         [24] 1283 	lcall	_delay
+                                   1284 ;	main.c:279: write_com(0X80+0x40);
+      0003E6 75 82 C0         [24] 1285 	mov	dpl,#0xC0
+      0003E9 12r00r42         [24] 1286 	lcall	_write_com
+                                   1287 ;	main.c:280: for (w=0;w<16;w++)
+      0003EC 7F 00            [12] 1288 	mov	r7,#0x00
+      0003EE                       1289 00108$:
+                                   1290 ;	main.c:282: write_data(enginep2[w]);
+      0003EE EF               [12] 1291 	mov	a,r7
+      0003EF 90r00rDC         [24] 1292 	mov	dptr,#_enginep2
+      0003F2 93               [24] 1293 	movc	a,@a+dptr
+      0003F3 F5 82            [12] 1294 	mov	dpl,a
+      0003F5 C0 07            [24] 1295 	push	ar7
+      0003F7 12r00r5B         [24] 1296 	lcall	_write_data
+                                   1297 ;	main.c:283: delay(100);
+      0003FA 90 00 64         [24] 1298 	mov	dptr,#0x0064
+      0003FD 12r00r1E         [24] 1299 	lcall	_delay
+      000400 D0 07            [24] 1300 	pop	ar7
+                                   1301 ;	main.c:280: for (w=0;w<16;w++)
+      000402 0F               [12] 1302 	inc	r7
+      000403 BF 10 00         [24] 1303 	cjne	r7,#0x10,00155$
+      000406                       1304 00155$:
+      000406 40 E6            [24] 1305 	jc	00108$
+                                   1306 ;	main.c:285: delay(500);
+      000408 90 01 F4         [24] 1307 	mov	dptr,#0x01F4
+      00040B 12r00r1E         [24] 1308 	lcall	_delay
+                                   1309 ;	main.c:286: write_com(0x01);
+      00040E 75 82 01         [24] 1310 	mov	dpl,#0x01
+      000411 12r00r42         [24] 1311 	lcall	_write_com
+                                   1312 ;	main.c:287: for (w=0;w<16;w++)
+      000414 7F 00            [12] 1313 	mov	r7,#0x00
+      000416                       1314 00110$:
+                                   1315 ;	main.c:289: write_data(enginep3[w]);
+      000416 EF               [12] 1316 	mov	a,r7
+      000417 90r00rEE         [24] 1317 	mov	dptr,#_enginep3
+      00041A 93               [24] 1318 	movc	a,@a+dptr
+      00041B F5 82            [12] 1319 	mov	dpl,a
+      00041D C0 07            [24] 1320 	push	ar7
+      00041F 12r00r5B         [24] 1321 	lcall	_write_data
+                                   1322 ;	main.c:290: delay(100);
+      000422 90 00 64         [24] 1323 	mov	dptr,#0x0064
+      000425 12r00r1E         [24] 1324 	lcall	_delay
+      000428 D0 07            [24] 1325 	pop	ar7
+                                   1326 ;	main.c:287: for (w=0;w<16;w++)
+      00042A 0F               [12] 1327 	inc	r7
+      00042B BF 10 00         [24] 1328 	cjne	r7,#0x10,00157$
+      00042E                       1329 00157$:
+      00042E 40 E6            [24] 1330 	jc	00110$
+                                   1331 ;	main.c:292: delay(500);
+      000430 90 01 F4         [24] 1332 	mov	dptr,#0x01F4
+      000433 12r00r1E         [24] 1333 	lcall	_delay
+                                   1334 ;	main.c:293: write_com(0X80+0x40);
+      000436 75 82 C0         [24] 1335 	mov	dpl,#0xC0
+      000439 12r00r42         [24] 1336 	lcall	_write_com
+                                   1337 ;	main.c:294: for (w=0;w<16;w++)
+      00043C 7F 00            [12] 1338 	mov	r7,#0x00
+      00043E                       1339 00112$:
+                                   1340 ;	main.c:296: write_data(enginep4[w]);
+      00043E EF               [12] 1341 	mov	a,r7
+      00043F 90r00rFF         [24] 1342 	mov	dptr,#_enginep4
+      000442 93               [24] 1343 	movc	a,@a+dptr
+      000443 F5 82            [12] 1344 	mov	dpl,a
+      000445 C0 07            [24] 1345 	push	ar7
+      000447 12r00r5B         [24] 1346 	lcall	_write_data
+                                   1347 ;	main.c:297: delay(100);
+      00044A 90 00 64         [24] 1348 	mov	dptr,#0x0064
+      00044D 12r00r1E         [24] 1349 	lcall	_delay
+      000450 D0 07            [24] 1350 	pop	ar7
+                                   1351 ;	main.c:294: for (w=0;w<16;w++)
+      000452 0F               [12] 1352 	inc	r7
+      000453 BF 10 00         [24] 1353 	cjne	r7,#0x10,00159$
+      000456                       1354 00159$:
+      000456 40 E6            [24] 1355 	jc	00112$
+                                   1356 ;	main.c:299: delay(500);
+      000458 90 01 F4         [24] 1357 	mov	dptr,#0x01F4
+      00045B 12r00r1E         [24] 1358 	lcall	_delay
+                                   1359 ;	main.c:300: write_com(0x01);
+      00045E 75 82 01         [24] 1360 	mov	dpl,#0x01
+      000461 12r00r42         [24] 1361 	lcall	_write_com
+                                   1362 ;	main.c:301: for (w=0;w<7;w++)
+      000464 7F 00            [12] 1363 	mov	r7,#0x00
+      000466                       1364 00114$:
+                                   1365 ;	main.c:303: write_data(enginep5[w]);
+      000466 EF               [12] 1366 	mov	a,r7
+      000467 90r01r10         [24] 1367 	mov	dptr,#_enginep5
+      00046A 93               [24] 1368 	movc	a,@a+dptr
+      00046B F5 82            [12] 1369 	mov	dpl,a
+      00046D C0 07            [24] 1370 	push	ar7
+      00046F 12r00r5B         [24] 1371 	lcall	_write_data
+                                   1372 ;	main.c:304: delay(100);
+      000472 90 00 64         [24] 1373 	mov	dptr,#0x0064
+      000475 12r00r1E         [24] 1374 	lcall	_delay
+      000478 D0 07            [24] 1375 	pop	ar7
+                                   1376 ;	main.c:301: for (w=0;w<7;w++)
+      00047A 0F               [12] 1377 	inc	r7
+      00047B BF 07 00         [24] 1378 	cjne	r7,#0x07,00161$
+      00047E                       1379 00161$:
+      00047E 40 E6            [24] 1380 	jc	00114$
+                                   1381 ;	main.c:306: delay(800);
+      000480 90 03 20         [24] 1382 	mov	dptr,#0x0320
+      000483 12r00r1E         [24] 1383 	lcall	_delay
+                                   1384 ;	main.c:307: ship_thrust = ship_thrust * 0.75;
+      000486 C0*09            [24] 1385 	push	_ship_thrust
+      000488 C0*0A            [24] 1386 	push	(_ship_thrust + 1)
+      00048A C0*0B            [24] 1387 	push	(_ship_thrust + 2)
+      00048C C0*0C            [24] 1388 	push	(_ship_thrust + 3)
+      00048E 90 00 00         [24] 1389 	mov	dptr,#0x0000
+      000491 75 F0 40         [24] 1390 	mov	b,#0x40
+      000494 74 3F            [12] 1391 	mov	a,#0x3F
+      000496 12r00r00         [24] 1392 	lcall	___fsmul
+      000499 85 82*09         [24] 1393 	mov	_ship_thrust,dpl
+      00049C 85 83*0A         [24] 1394 	mov	(_ship_thrust + 1),dph
+      00049F 85 F0*0B         [24] 1395 	mov	(_ship_thrust + 2),b
+      0004A2 F5*0C            [12] 1396 	mov	(_ship_thrust + 3),a
+      0004A4 E5 81            [12] 1397 	mov	a,sp
+      0004A6 24 FC            [12] 1398 	add	a,#0xfc
+      0004A8 F5 81            [12] 1399 	mov	sp,a
+                                   1400 ;	main.c:308: write_com(0x01);
+      0004AA 75 82 01         [24] 1401 	mov	dpl,#0x01
+      0004AD 02r00r42         [24] 1402 	ljmp	_write_com
+                                   1403 ;------------------------------------------------------------
+                                   1404 ;Allocation info for local variables in function 'main'
+                                   1405 ;------------------------------------------------------------
+                                   1406 ;	main.c:311: void main()
+                                   1407 ;	-----------------------------------------
+                                   1408 ;	 function main
+                                   1409 ;	-----------------------------------------
+      0004B0                       1410 _main:
+                                   1411 ;	main.c:313: init();
+      0004B0 12r00r74         [24] 1412 	lcall	_init
+                                   1413 ;	main.c:314: start();
+      0004B3 12r00r94         [24] 1414 	lcall	_start
+                                   1415 ;	main.c:315: Timer0Init();
+      0004B6 12r00r00         [24] 1416 	lcall	_Timer0Init
+                                   1417 ;	main.c:316: while(1)
+      0004B9                       1418 00131$:
+                                   1419 ;	main.c:318: digit(height);
+      0004B9 85*11 82         [24] 1420 	mov	dpl,_height
+      0004BC 85*12 83         [24] 1421 	mov	dph,(_height + 1)
+      0004BF 85*13 F0         [24] 1422 	mov	b,(_height + 2)
+      0004C2 E5*14            [12] 1423 	mov	a,(_height + 3)
+      0004C4 12r07rB9         [24] 1424 	lcall	_digit
+                                   1425 ;	main.c:319: write_data('h');
+      0004C7 75 82 68         [24] 1426 	mov	dpl,#0x68
+      0004CA 12r00r5B         [24] 1427 	lcall	_write_data
+                                   1428 ;	main.c:320: write_data(':');
+      0004CD 75 82 3A         [24] 1429 	mov	dpl,#0x3A
+      0004D0 12r00r5B         [24] 1430 	lcall	_write_data
+                                   1431 ;	main.c:321: sign();
+      0004D3 12r08r3C         [24] 1432 	lcall	_sign
+                                   1433 ;	main.c:322: displaynum();
+      0004D6 12r08r76         [24] 1434 	lcall	_displaynum
+                                   1435 ;	main.c:324: digit(velocity);
+      0004D9 85*01 82         [24] 1436 	mov	dpl,_velocity
+      0004DC 85*02 83         [24] 1437 	mov	dph,(_velocity + 1)
+      0004DF 85*03 F0         [24] 1438 	mov	b,(_velocity + 2)
+      0004E2 E5*04            [12] 1439 	mov	a,(_velocity + 3)
+      0004E4 12r07rB9         [24] 1440 	lcall	_digit
+                                   1441 ;	main.c:325: write_data(' ');
+      0004E7 75 82 20         [24] 1442 	mov	dpl,#0x20
+      0004EA 12r00r5B         [24] 1443 	lcall	_write_data
+                                   1444 ;	main.c:326: write_data(' ');
+      0004ED 75 82 20         [24] 1445 	mov	dpl,#0x20
+      0004F0 12r00r5B         [24] 1446 	lcall	_write_data
+                                   1447 ;	main.c:327: write_data('v');
+      0004F3 75 82 76         [24] 1448 	mov	dpl,#0x76
+      0004F6 12r00r5B         [24] 1449 	lcall	_write_data
+                                   1450 ;	main.c:328: write_data(':');
+      0004F9 75 82 3A         [24] 1451 	mov	dpl,#0x3A
+      0004FC 12r00r5B         [24] 1452 	lcall	_write_data
+                                   1453 ;	main.c:329: sign();
+      0004FF 12r08r3C         [24] 1454 	lcall	_sign
+                                   1455 ;	main.c:330: displaynum();
+      000502 12r08r76         [24] 1456 	lcall	_displaynum
+                                   1457 ;	main.c:331: write_com(0X80+0x40);
+      000505 75 82 C0         [24] 1458 	mov	dpl,#0xC0
+      000508 12r00r42         [24] 1459 	lcall	_write_com
+                                   1460 ;	main.c:333: digit(a);
+      00050B 85*29 82         [24] 1461 	mov	dpl,_a
+      00050E 85*2A 83         [24] 1462 	mov	dph,(_a + 1)
+      000511 85*2B F0         [24] 1463 	mov	b,(_a + 2)
+      000514 E5*2C            [12] 1464 	mov	a,(_a + 3)
+      000516 12r07rB9         [24] 1465 	lcall	_digit
+                                   1466 ;	main.c:334: write_data('a');
+      000519 75 82 61         [24] 1467 	mov	dpl,#0x61
+      00051C 12r00r5B         [24] 1468 	lcall	_write_data
+                                   1469 ;	main.c:335: write_data(':');
+      00051F 75 82 3A         [24] 1470 	mov	dpl,#0x3A
+      000522 12r00r5B         [24] 1471 	lcall	_write_data
+                                   1472 ;	main.c:336: sign();
+      000525 12r08r3C         [24] 1473 	lcall	_sign
+                                   1474 ;	main.c:337: displaynum();
+      000528 12r08r76         [24] 1475 	lcall	_displaynum
+                                   1476 ;	main.c:339: digit(fuel);
+      00052B 85*19 82         [24] 1477 	mov	dpl,_fuel
+      00052E 85*1A 83         [24] 1478 	mov	dph,(_fuel + 1)
+      000531 85*1B F0         [24] 1479 	mov	b,(_fuel + 2)
+      000534 E5*1C            [12] 1480 	mov	a,(_fuel + 3)
+      000536 12r07rB9         [24] 1481 	lcall	_digit
+                                   1482 ;	main.c:340: write_data(' ');
+      000539 75 82 20         [24] 1483 	mov	dpl,#0x20
+      00053C 12r00r5B         [24] 1484 	lcall	_write_data
+                                   1485 ;	main.c:341: write_data(' ');
+      00053F 75 82 20         [24] 1486 	mov	dpl,#0x20
+      000542 12r00r5B         [24] 1487 	lcall	_write_data
+                                   1488 ;	main.c:342: write_data('f');
+      000545 75 82 66         [24] 1489 	mov	dpl,#0x66
+      000548 12r00r5B         [24] 1490 	lcall	_write_data
+                                   1491 ;	main.c:343: write_data(':');
+      00054B 75 82 3A         [24] 1492 	mov	dpl,#0x3A
+      00054E 12r00r5B         [24] 1493 	lcall	_write_data
+                                   1494 ;	main.c:344: displaynum();
+      000551 12r08r76         [24] 1495 	lcall	_displaynum
+                                   1496 ;	main.c:345: write_data('%');
+      000554 75 82 25         [24] 1497 	mov	dpl,#0x25
+      000557 12r00r5B         [24] 1498 	lcall	_write_data
+                                   1499 ;	main.c:347: write_com(0x02);
+      00055A 75 82 02         [24] 1500 	mov	dpl,#0x02
+      00055D 12r00r42         [24] 1501 	lcall	_write_com
+                                   1502 ;	main.c:349: delay(50);
+      000560 90 00 32         [24] 1503 	mov	dptr,#0x0032
+      000563 12r00r1E         [24] 1504 	lcall	_delay
+                                   1505 ;	main.c:350: if (velocity > 20.0)
+      000566 E4               [12] 1506 	clr	a
+      000567 C0 E0            [24] 1507 	push	acc
+      000569 C0 E0            [24] 1508 	push	acc
+      00056B 74 A0            [12] 1509 	mov	a,#0xA0
+      00056D C0 E0            [24] 1510 	push	acc
+      00056F 23               [12] 1511 	rl	a
+      000570 C0 E0            [24] 1512 	push	acc
+      000572 85*01 82         [24] 1513 	mov	dpl,_velocity
+      000575 85*02 83         [24] 1514 	mov	dph,(_velocity + 1)
+      000578 85*03 F0         [24] 1515 	mov	b,(_velocity + 2)
+      00057B E5*04            [12] 1516 	mov	a,(_velocity + 3)
+      00057D 12r00r00         [24] 1517 	lcall	___fsgt
+      000580 AF 82            [24] 1518 	mov	r7,dpl
+      000582 E5 81            [12] 1519 	mov	a,sp
+      000584 24 FC            [12] 1520 	add	a,#0xfc
+      000586 F5 81            [12] 1521 	mov	sp,a
+      000588 EF               [12] 1522 	mov	a,r7
+      000589 60 12            [24] 1523 	jz	00102$
+                                   1524 ;	main.c:352: TR0 = 0;
+      00058B C2 8C            [12] 1525 	clr	_TR0
+                                   1526 ;	main.c:353: enginepower();
+      00058D 12r03rBE         [24] 1527 	lcall	_enginepower
+                                   1528 ;	main.c:354: velocity = 10.0;
+      000590 E4               [12] 1529 	clr	a
+      000591 F5*01            [12] 1530 	mov	_velocity,a
+      000593 F5*02            [12] 1531 	mov	(_velocity + 1),a
+      000595 75*03 20         [24] 1532 	mov	(_velocity + 2),#0x20
+      000598 75*04 41         [24] 1533 	mov	(_velocity + 3),#0x41
+                                   1534 ;	main.c:355: TR0 = 1;
+      00059B D2 8C            [12] 1535 	setb	_TR0
+      00059D                       1536 00102$:
+                                   1537 ;	main.c:357: if (velocity < - 20.0)
+      00059D E4               [12] 1538 	clr	a
+      00059E C0 E0            [24] 1539 	push	acc
+      0005A0 C0 E0            [24] 1540 	push	acc
+      0005A2 74 A0            [12] 1541 	mov	a,#0xA0
+      0005A4 C0 E0            [24] 1542 	push	acc
+      0005A6 74 C1            [12] 1543 	mov	a,#0xC1
+      0005A8 C0 E0            [24] 1544 	push	acc
+      0005AA 85*01 82         [24] 1545 	mov	dpl,_velocity
+      0005AD 85*02 83         [24] 1546 	mov	dph,(_velocity + 1)
+      0005B0 85*03 F0         [24] 1547 	mov	b,(_velocity + 2)
+      0005B3 E5*04            [12] 1548 	mov	a,(_velocity + 3)
+      0005B5 12r00r00         [24] 1549 	lcall	___fslt
+      0005B8 AF 82            [24] 1550 	mov	r7,dpl
+      0005BA E5 81            [12] 1551 	mov	a,sp
+      0005BC 24 FC            [12] 1552 	add	a,#0xfc
+      0005BE F5 81            [12] 1553 	mov	sp,a
+      0005C0 EF               [12] 1554 	mov	a,r7
+      0005C1 60 12            [24] 1555 	jz	00104$
+                                   1556 ;	main.c:359: TR0 = 0;
+      0005C3 C2 8C            [12] 1557 	clr	_TR0
+                                   1558 ;	main.c:360: enginepower();
+      0005C5 12r03rBE         [24] 1559 	lcall	_enginepower
+                                   1560 ;	main.c:361: velocity = 10.0;
+      0005C8 E4               [12] 1561 	clr	a
+      0005C9 F5*01            [12] 1562 	mov	_velocity,a
+      0005CB F5*02            [12] 1563 	mov	(_velocity + 1),a
+      0005CD 75*03 20         [24] 1564 	mov	(_velocity + 2),#0x20
+      0005D0 75*04 41         [24] 1565 	mov	(_velocity + 3),#0x41
+                                   1566 ;	main.c:362: TR0 = 1;
+      0005D3 D2 8C            [12] 1567 	setb	_TR0
+      0005D5                       1568 00104$:
+                                   1569 ;	main.c:364: if (thrustkey == 0)
+      0005D5 30 B2 03         [24] 1570 	jnb	_P3_2,00202$
+      0005D8 02r06r92         [24] 1571 	ljmp	00114$
+      0005DB                       1572 00202$:
+                                   1573 ;	main.c:366: n++;
+      0005DB 05*37            [12] 1574 	inc	_n
+      0005DD E4               [12] 1575 	clr	a
+      0005DE B5*37 02         [24] 1576 	cjne	a,_n,00203$
+      0005E1 05*38            [12] 1577 	inc	(_n + 1)
+      0005E3                       1578 00203$:
+                                   1579 ;	main.c:367: if (n % 200 == 0)
+      0005E3 75*00 C8         [24] 1580 	mov	__moduint_PARM_2,#0xC8
+      0005E6 75*01 00         [24] 1581 	mov	(__moduint_PARM_2 + 1),#0x00
+      0005E9 85*37 82         [24] 1582 	mov	dpl,_n
+      0005EC 85*38 83         [24] 1583 	mov	dph,(_n + 1)
+      0005EF 12r00r00         [24] 1584 	lcall	__moduint
+      0005F2 E5 82            [12] 1585 	mov	a,dpl
+      0005F4 85 83 F0         [24] 1586 	mov	b,dph
+      0005F7 45 F0            [12] 1587 	orl	a,b
+      0005F9 70 07            [24] 1588 	jnz	00106$
+                                   1589 ;	main.c:369: TR0 = 0;
+      0005FB C2 8C            [12] 1590 	clr	_TR0
+                                   1591 ;	main.c:370: fuelleak();
+      0005FD 12r02r6D         [24] 1592 	lcall	_fuelleak
+                                   1593 ;	main.c:371: TR0 = 1;
+      000600 D2 8C            [12] 1594 	setb	_TR0
+      000602                       1595 00106$:
+                                   1596 ;	main.c:373: if (n % 350 == 0)
+      000602 75*00 5E         [24] 1597 	mov	__moduint_PARM_2,#0x5E
+      000605 75*01 01         [24] 1598 	mov	(__moduint_PARM_2 + 1),#0x01
+      000608 85*37 82         [24] 1599 	mov	dpl,_n
+      00060B 85*38 83         [24] 1600 	mov	dph,(_n + 1)
+      00060E 12r00r00         [24] 1601 	lcall	__moduint
+      000611 E5 82            [12] 1602 	mov	a,dpl
+      000613 85 83 F0         [24] 1603 	mov	b,dph
+      000616 45 F0            [12] 1604 	orl	a,b
+      000618 70 07            [24] 1605 	jnz	00108$
+                                   1606 ;	main.c:375: TR0 = 0;
+      00061A C2 8C            [12] 1607 	clr	_TR0
+                                   1608 ;	main.c:376: turb();
+      00061C 12r03r16         [24] 1609 	lcall	_turb
+                                   1610 ;	main.c:377: TR0 = 1;
+      00061F D2 8C            [12] 1611 	setb	_TR0
+      000621                       1612 00108$:
+                                   1613 ;	main.c:379: if (n == 60000)
+      000621 AC*37            [24] 1614 	mov	r4,_n
+      000623 AD*38            [24] 1615 	mov	r5,(_n + 1)
+      000625 7E 00            [12] 1616 	mov	r6,#0x00
+      000627 7F 00            [12] 1617 	mov	r7,#0x00
+      000629 BC 60 15         [24] 1618 	cjne	r4,#0x60,00110$
+      00062C BD EA 12         [24] 1619 	cjne	r5,#0xEA,00110$
+      00062F BE 00 0F         [24] 1620 	cjne	r6,#0x00,00110$
+      000632 BF 00 0C         [24] 1621 	cjne	r7,#0x00,00110$
+                                   1622 ;	main.c:381: n = 0;
+      000635 E4               [12] 1623 	clr	a
+      000636 F5*37            [12] 1624 	mov	_n,a
+      000638 F5*38            [12] 1625 	mov	(_n + 1),a
+                                   1626 ;	main.c:382: s++;
+      00063A 05*39            [12] 1627 	inc	_s
+                                   1628 ;	genFromRTrack removed	clr	a
+      00063C B5*39 02         [24] 1629 	cjne	a,_s,00208$
+      00063F 05*3A            [12] 1630 	inc	(_s + 1)
+      000641                       1631 00208$:
+      000641                       1632 00110$:
+                                   1633 ;	main.c:384: if (s == 60000)
+      000641 AC*39            [24] 1634 	mov	r4,_s
+      000643 AD*3A            [24] 1635 	mov	r5,(_s + 1)
+      000645 7E 00            [12] 1636 	mov	r6,#0x00
+      000647 7F 00            [12] 1637 	mov	r7,#0x00
+      000649 BC 60 0E         [24] 1638 	cjne	r4,#0x60,00112$
+      00064C BD EA 0B         [24] 1639 	cjne	r5,#0xEA,00112$
+      00064F BE 00 08         [24] 1640 	cjne	r6,#0x00,00112$
+      000652 BF 00 05         [24] 1641 	cjne	r7,#0x00,00112$
+                                   1642 ;	main.c:386: s = 0;
+      000655 E4               [12] 1643 	clr	a
+      000656 F5*39            [12] 1644 	mov	_s,a
+      000658 F5*3A            [12] 1645 	mov	(_s + 1),a
+      00065A                       1646 00112$:
+                                   1647 ;	main.c:388: thrust = ship_thrust;
+      00065A 85*09*05         [24] 1648 	mov	_thrust,_ship_thrust
+      00065D 85*0A*06         [24] 1649 	mov	(_thrust + 1),(_ship_thrust + 1)
+      000660 85*0B*07         [24] 1650 	mov	(_thrust + 2),(_ship_thrust + 2)
+      000663 85*0C*08         [24] 1651 	mov	(_thrust + 3),(_ship_thrust + 3)
+                                   1652 ;	main.c:389: fuel = fuel - 0.5;
+      000666 E4               [12] 1653 	clr	a
+      000667 C0 E0            [24] 1654 	push	acc
+      000669 C0 E0            [24] 1655 	push	acc
+      00066B C0 E0            [24] 1656 	push	acc
+      00066D 74 3F            [12] 1657 	mov	a,#0x3F
+      00066F C0 E0            [24] 1658 	push	acc
+      000671 85*19 82         [24] 1659 	mov	dpl,_fuel
+      000674 85*1A 83         [24] 1660 	mov	dph,(_fuel + 1)
+      000677 85*1B F0         [24] 1661 	mov	b,(_fuel + 2)
+      00067A E5*1C            [12] 1662 	mov	a,(_fuel + 3)
+      00067C 12r00r00         [24] 1663 	lcall	___fssub
+      00067F 85 82*19         [24] 1664 	mov	_fuel,dpl
+      000682 85 83*1A         [24] 1665 	mov	(_fuel + 1),dph
+      000685 85 F0*1B         [24] 1666 	mov	(_fuel + 2),b
+      000688 F5*1C            [12] 1667 	mov	(_fuel + 3),a
+      00068A E5 81            [12] 1668 	mov	a,sp
+      00068C 24 FC            [12] 1669 	add	a,#0xfc
+      00068E F5 81            [12] 1670 	mov	sp,a
+      000690 80 09            [24] 1671 	sjmp	00115$
+      000692                       1672 00114$:
+                                   1673 ;	main.c:393: thrust = 0;
+      000692 E4               [12] 1674 	clr	a
+      000693 F5*05            [12] 1675 	mov	_thrust,a
+      000695 F5*06            [12] 1676 	mov	(_thrust + 1),a
+      000697 F5*07            [12] 1677 	mov	(_thrust + 2),a
+      000699 F5*08            [12] 1678 	mov	(_thrust + 3),a
+      00069B                       1679 00115$:
+                                   1680 ;	main.c:395: if (fuel < 0.1)
+      00069B 74 CD            [12] 1681 	mov	a,#0xCD
+      00069D C0 E0            [24] 1682 	push	acc
+      00069F 14               [12] 1683 	dec	a
+      0006A0 C0 E0            [24] 1684 	push	acc
+      0006A2 C0 E0            [24] 1685 	push	acc
+      0006A4 74 3D            [12] 1686 	mov	a,#0x3D
+      0006A6 C0 E0            [24] 1687 	push	acc
+      0006A8 85*19 82         [24] 1688 	mov	dpl,_fuel
+      0006AB 85*1A 83         [24] 1689 	mov	dph,(_fuel + 1)
+      0006AE 85*1B F0         [24] 1690 	mov	b,(_fuel + 2)
+      0006B1 E5*1C            [12] 1691 	mov	a,(_fuel + 3)
+      0006B3 12r00r00         [24] 1692 	lcall	___fslt
+      0006B6 AF 82            [24] 1693 	mov	r7,dpl
+      0006B8 E5 81            [12] 1694 	mov	a,sp
+      0006BA 24 FC            [12] 1695 	add	a,#0xfc
+      0006BC F5 81            [12] 1696 	mov	sp,a
+      0006BE EF               [12] 1697 	mov	a,r7
+      0006BF 60 11            [24] 1698 	jz	00117$
+                                   1699 ;	main.c:397: thrust = 0;
+      0006C1 E4               [12] 1700 	clr	a
+      0006C2 F5*05            [12] 1701 	mov	_thrust,a
+      0006C4 F5*06            [12] 1702 	mov	(_thrust + 1),a
+      0006C6 F5*07            [12] 1703 	mov	(_thrust + 2),a
+      0006C8 F5*08            [12] 1704 	mov	(_thrust + 3),a
+                                   1705 ;	main.c:398: fuel = 0.0;
+      0006CA F5*19            [12] 1706 	mov	_fuel,a
+      0006CC F5*1A            [12] 1707 	mov	(_fuel + 1),a
+      0006CE F5*1B            [12] 1708 	mov	(_fuel + 2),a
+      0006D0 F5*1C            [12] 1709 	mov	(_fuel + 3),a
+      0006D2                       1710 00117$:
+                                   1711 ;	main.c:401: if (height < 0.1)
+      0006D2 74 CD            [12] 1712 	mov	a,#0xCD
+      0006D4 C0 E0            [24] 1713 	push	acc
+      0006D6 14               [12] 1714 	dec	a
+      0006D7 C0 E0            [24] 1715 	push	acc
+      0006D9 C0 E0            [24] 1716 	push	acc
+      0006DB 74 3D            [12] 1717 	mov	a,#0x3D
+      0006DD C0 E0            [24] 1718 	push	acc
+      0006DF 85*11 82         [24] 1719 	mov	dpl,_height
+      0006E2 85*12 83         [24] 1720 	mov	dph,(_height + 1)
+      0006E5 85*13 F0         [24] 1721 	mov	b,(_height + 2)
+      0006E8 E5*14            [12] 1722 	mov	a,(_height + 3)
+      0006EA 12r00r00         [24] 1723 	lcall	___fslt
+      0006ED AF 82            [24] 1724 	mov	r7,dpl
+      0006EF E5 81            [12] 1725 	mov	a,sp
+      0006F1 24 FC            [12] 1726 	add	a,#0xfc
+      0006F3 F5 81            [12] 1727 	mov	sp,a
+      0006F5 EF               [12] 1728 	mov	a,r7
+      0006F6 70 03            [24] 1729 	jnz	00212$
+      0006F8 02r04rB9         [24] 1730 	ljmp	00131$
+      0006FB                       1731 00212$:
+                                   1732 ;	main.c:403: write_com(0x01);
+      0006FB 75 82 01         [24] 1733 	mov	dpl,#0x01
+      0006FE 12r00r42         [24] 1734 	lcall	_write_com
+                                   1735 ;	main.c:404: write_com(0x02);
+      000701 75 82 02         [24] 1736 	mov	dpl,#0x02
+      000704 12r00r42         [24] 1737 	lcall	_write_com
+                                   1738 ;	main.c:405: if (velocity > -10.0)
+      000707 E4               [12] 1739 	clr	a
+      000708 C0 E0            [24] 1740 	push	acc
+      00070A C0 E0            [24] 1741 	push	acc
+      00070C 74 20            [12] 1742 	mov	a,#0x20
+      00070E C0 E0            [24] 1743 	push	acc
+      000710 74 C1            [12] 1744 	mov	a,#0xC1
+      000712 C0 E0            [24] 1745 	push	acc
+      000714 85*01 82         [24] 1746 	mov	dpl,_velocity
+      000717 85*02 83         [24] 1747 	mov	dph,(_velocity + 1)
+      00071A 85*03 F0         [24] 1748 	mov	b,(_velocity + 2)
+      00071D E5*04            [12] 1749 	mov	a,(_velocity + 3)
+      00071F 12r00r00         [24] 1750 	lcall	___fsgt
+      000722 AF 82            [24] 1751 	mov	r7,dpl
+      000724 E5 81            [12] 1752 	mov	a,sp
+      000726 24 FC            [12] 1753 	add	a,#0xfc
+      000728 F5 81            [12] 1754 	mov	sp,a
+      00072A EF               [12] 1755 	mov	a,r7
+      00072B 60 46            [24] 1756 	jz	00123$
+                                   1757 ;	main.c:407: for(num=0;num<8;num++)
+      00072D 75*00 00         [24] 1758 	mov	_num,#0x00
+      000730                       1759 00133$:
+                                   1760 ;	main.c:409: write_data(win[num]);
+      000730 E5*00            [12] 1761 	mov	a,_num
+      000732 90r00r00         [24] 1762 	mov	dptr,#_win
+      000735 93               [24] 1763 	movc	a,@a+dptr
+      000736 F5 82            [12] 1764 	mov	dpl,a
+      000738 12r00r5B         [24] 1765 	lcall	_write_data
+                                   1766 ;	main.c:410: delay(200);
+      00073B 90 00 C8         [24] 1767 	mov	dptr,#0x00C8
+      00073E 12r00r1E         [24] 1768 	lcall	_delay
+                                   1769 ;	main.c:407: for(num=0;num<8;num++)
+      000741 05*00            [12] 1770 	inc	_num
+      000743 74 F8            [12] 1771 	mov	a,#0x100 - 0x08
+      000745 25*00            [12] 1772 	add	a,_num
+      000747 50 E7            [24] 1773 	jnc	00133$
+                                   1774 ;	main.c:412: delay(300);
+      000749 90 01 2C         [24] 1775 	mov	dptr,#0x012C
+      00074C 12r00r1E         [24] 1776 	lcall	_delay
+                                   1777 ;	main.c:413: write_com(0X80+0x40);
+      00074F 75 82 C0         [24] 1778 	mov	dpl,#0xC0
+      000752 12r00r42         [24] 1779 	lcall	_write_com
+                                   1780 ;	main.c:414: for(num=0;num<10;num++)
+      000755 75*00 00         [24] 1781 	mov	_num,#0x00
+      000758                       1782 00135$:
+                                   1783 ;	main.c:416: write_data(gameover[num]);
+      000758 E5*00            [12] 1784 	mov	a,_num
+      00075A 90r00r16         [24] 1785 	mov	dptr,#_gameover
+      00075D 93               [24] 1786 	movc	a,@a+dptr
+      00075E F5 82            [12] 1787 	mov	dpl,a
+      000760 12r00r5B         [24] 1788 	lcall	_write_data
+                                   1789 ;	main.c:417: delay(200);
+      000763 90 00 C8         [24] 1790 	mov	dptr,#0x00C8
+      000766 12r00r1E         [24] 1791 	lcall	_delay
+                                   1792 ;	main.c:414: for(num=0;num<10;num++)
+      000769 05*00            [12] 1793 	inc	_num
+      00076B 74 F6            [12] 1794 	mov	a,#0x100 - 0x0A
+      00076D 25*00            [12] 1795 	add	a,_num
+      00076F 50 E7            [24] 1796 	jnc	00135$
+      000771 80 44            [24] 1797 	sjmp	00126$
+      000773                       1798 00123$:
+                                   1799 ;	main.c:422: for(num=0;num<12;num++)
+      000773 75*00 00         [24] 1800 	mov	_num,#0x00
+      000776                       1801 00137$:
+                                   1802 ;	main.c:424: write_data(lose[num]);
+      000776 E5*00            [12] 1803 	mov	a,_num
+      000778 90r00r09         [24] 1804 	mov	dptr,#_lose
+      00077B 93               [24] 1805 	movc	a,@a+dptr
+      00077C F5 82            [12] 1806 	mov	dpl,a
+      00077E 12r00r5B         [24] 1807 	lcall	_write_data
+                                   1808 ;	main.c:425: delay(200);
+      000781 90 00 C8         [24] 1809 	mov	dptr,#0x00C8
+      000784 12r00r1E         [24] 1810 	lcall	_delay
+                                   1811 ;	main.c:422: for(num=0;num<12;num++)
+      000787 05*00            [12] 1812 	inc	_num
+      000789 74 F4            [12] 1813 	mov	a,#0x100 - 0x0C
+      00078B 25*00            [12] 1814 	add	a,_num
+      00078D 50 E7            [24] 1815 	jnc	00137$
+                                   1816 ;	main.c:427: delay(300);
+      00078F 90 01 2C         [24] 1817 	mov	dptr,#0x012C
+      000792 12r00r1E         [24] 1818 	lcall	_delay
+                                   1819 ;	main.c:428: write_com(0X80+0x40);
+      000795 75 82 C0         [24] 1820 	mov	dpl,#0xC0
+      000798 12r00r42         [24] 1821 	lcall	_write_com
+                                   1822 ;	main.c:429: for(num=0;num<10;num++)
+      00079B 75*00 00         [24] 1823 	mov	_num,#0x00
+      00079E                       1824 00139$:
+                                   1825 ;	main.c:431: write_data(gameover[num]);
+      00079E E5*00            [12] 1826 	mov	a,_num
+      0007A0 90r00r16         [24] 1827 	mov	dptr,#_gameover
+      0007A3 93               [24] 1828 	movc	a,@a+dptr
+      0007A4 F5 82            [12] 1829 	mov	dpl,a
+      0007A6 12r00r5B         [24] 1830 	lcall	_write_data
+                                   1831 ;	main.c:432: delay(200);
+      0007A9 90 00 C8         [24] 1832 	mov	dptr,#0x00C8
+      0007AC 12r00r1E         [24] 1833 	lcall	_delay
+                                   1834 ;	main.c:429: for(num=0;num<10;num++)
+      0007AF 05*00            [12] 1835 	inc	_num
+      0007B1 74 F6            [12] 1836 	mov	a,#0x100 - 0x0A
+      0007B3 25*00            [12] 1837 	add	a,_num
+      0007B5 50 E7            [24] 1838 	jnc	00139$
+                                   1839 ;	main.c:435: while(1);
+      0007B7                       1840 00126$:
+      0007B7 80 FE            [24] 1841 	sjmp	00126$
+                                   1842 ;------------------------------------------------------------
+                                   1843 ;Allocation info for local variables in function 'digit'
+                                   1844 ;------------------------------------------------------------
+                                   1845 ;input                     Allocated to registers r4 r5 r6 r7 
+                                   1846 ;b                         Allocated to registers r6 r7 
+                                   1847 ;int_input                 Allocated to registers r6 r7 
+                                   1848 ;------------------------------------------------------------
+                                   1849 ;	main.c:441: void digit (float input)
+                                   1850 ;	-----------------------------------------
+                                   1851 ;	 function digit
+                                   1852 ;	-----------------------------------------
+      0007B9                       1853 _digit:
+                                   1854 ;	main.c:444: int_input = (int) input;
+      0007B9 12r00r00         [24] 1855 	lcall	___fs2sint
+                                   1856 ;	main.c:445: digit4 = int_input % 10;
+      0007BC AE 82            [24] 1857 	mov	r6,dpl
+      0007BE AF 83            [24] 1858 	mov	r7,dph
+      0007C0 75*00 0A         [24] 1859 	mov	__modsint_PARM_2,#0x0A
+      0007C3 75*01 00         [24] 1860 	mov	(__modsint_PARM_2 + 1),#0x00
+      0007C6 C0 07            [24] 1861 	push	ar7
+      0007C8 C0 06            [24] 1862 	push	ar6
+      0007CA 12r00r00         [24] 1863 	lcall	__modsint
+      0007CD AC 82            [24] 1864 	mov	r4,dpl
+      0007CF D0 06            [24] 1865 	pop	ar6
+      0007D1 D0 07            [24] 1866 	pop	ar7
+      0007D3 8C*34            [24] 1867 	mov	_digit4,r4
+                                   1868 ;	main.c:446: b = int_input / 10;
+      0007D5 75*00 0A         [24] 1869 	mov	__divsint_PARM_2,#0x0A
+      0007D8 75*01 00         [24] 1870 	mov	(__divsint_PARM_2 + 1),#0x00
+      0007DB 8E 82            [24] 1871 	mov	dpl,r6
+      0007DD 8F 83            [24] 1872 	mov	dph,r7
+      0007DF 12r00r00         [24] 1873 	lcall	__divsint
+                                   1874 ;	main.c:447: digit3 = b % 10;
+      0007E2 AE 82            [24] 1875 	mov	r6,dpl
+      0007E4 AF 83            [24] 1876 	mov	r7,dph
+      0007E6 75*00 0A         [24] 1877 	mov	__modsint_PARM_2,#0x0A
+      0007E9 75*01 00         [24] 1878 	mov	(__modsint_PARM_2 + 1),#0x00
+      0007EC C0 07            [24] 1879 	push	ar7
+      0007EE C0 06            [24] 1880 	push	ar6
+      0007F0 12r00r00         [24] 1881 	lcall	__modsint
+      0007F3 AC 82            [24] 1882 	mov	r4,dpl
+      0007F5 D0 06            [24] 1883 	pop	ar6
+      0007F7 D0 07            [24] 1884 	pop	ar7
+      0007F9 8C*33            [24] 1885 	mov	_digit3,r4
+                                   1886 ;	main.c:448: b = b / 10;
+      0007FB 75*00 0A         [24] 1887 	mov	__divsint_PARM_2,#0x0A
+      0007FE 75*01 00         [24] 1888 	mov	(__divsint_PARM_2 + 1),#0x00
+      000801 8E 82            [24] 1889 	mov	dpl,r6
+      000803 8F 83            [24] 1890 	mov	dph,r7
+      000805 12r00r00         [24] 1891 	lcall	__divsint
+                                   1892 ;	main.c:449: digit2 = b % 10;
+      000808 AE 82            [24] 1893 	mov	r6,dpl
+      00080A AF 83            [24] 1894 	mov	r7,dph
+      00080C 75*00 0A         [24] 1895 	mov	__modsint_PARM_2,#0x0A
+      00080F 75*01 00         [24] 1896 	mov	(__modsint_PARM_2 + 1),#0x00
+      000812 C0 07            [24] 1897 	push	ar7
+      000814 C0 06            [24] 1898 	push	ar6
+      000816 12r00r00         [24] 1899 	lcall	__modsint
+      000819 AC 82            [24] 1900 	mov	r4,dpl
+      00081B D0 06            [24] 1901 	pop	ar6
+      00081D D0 07            [24] 1902 	pop	ar7
+      00081F 8C*32            [24] 1903 	mov	_digit2,r4
+                                   1904 ;	main.c:450: b = b / 10;
+      000821 75*00 0A         [24] 1905 	mov	__divsint_PARM_2,#0x0A
+      000824 75*01 00         [24] 1906 	mov	(__divsint_PARM_2 + 1),#0x00
+      000827 8E 82            [24] 1907 	mov	dpl,r6
+      000829 8F 83            [24] 1908 	mov	dph,r7
+      00082B 12r00r00         [24] 1909 	lcall	__divsint
+                                   1910 ;	main.c:451: digit1 = b % 10;
+      00082E 75*00 0A         [24] 1911 	mov	__modsint_PARM_2,#0x0A
+      000831 75*01 00         [24] 1912 	mov	(__modsint_PARM_2 + 1),#0x00
+      000834 12r00r00         [24] 1913 	lcall	__modsint
+      000837 AE 82            [24] 1914 	mov	r6,dpl
+      000839 8E*31            [24] 1915 	mov	_digit1,r6
+      00083B 22               [24] 1916 	ret
+                                   1917 ;------------------------------------------------------------
+                                   1918 ;Allocation info for local variables in function 'sign'
+                                   1919 ;------------------------------------------------------------
+                                   1920 ;	main.c:454: void sign()
+                                   1921 ;	-----------------------------------------
+                                   1922 ;	 function sign
+                                   1923 ;	-----------------------------------------
+      00083C                       1924 _sign:
+                                   1925 ;	main.c:456: if (digit4 < 0)
+      00083C E5*34            [12] 1926 	mov	a,_digit4
+      00083E 30 E7 2F         [24] 1927 	jnb	acc.7,00102$
+                                   1928 ;	main.c:458: write_data('-');
+      000841 75 82 2D         [24] 1929 	mov	dpl,#0x2D
+      000844 12r00r5B         [24] 1930 	lcall	_write_data
+                                   1931 ;	main.c:459: digit1 = digit1 + (-2*digit1);
+      000847 E5*31            [12] 1932 	mov	a,_digit1
+      000849 75 F0 FE         [24] 1933 	mov	b,#0xFE
+      00084C A4               [48] 1934 	mul	ab
+      00084D 25*31            [12] 1935 	add	a,_digit1
+      00084F F5*31            [12] 1936 	mov	_digit1,a
+                                   1937 ;	main.c:460: digit2 = digit2 + (-2*digit2);
+      000851 E5*32            [12] 1938 	mov	a,_digit2
+      000853 75 F0 FE         [24] 1939 	mov	b,#0xFE
+      000856 A4               [48] 1940 	mul	ab
+      000857 25*32            [12] 1941 	add	a,_digit2
+      000859 F5*32            [12] 1942 	mov	_digit2,a
+                                   1943 ;	main.c:461: digit3 = digit3 + (-2*digit3);
+      00085B E5*33            [12] 1944 	mov	a,_digit3
+      00085D 75 F0 FE         [24] 1945 	mov	b,#0xFE
+      000860 A4               [48] 1946 	mul	ab
+      000861 25*33            [12] 1947 	add	a,_digit3
+      000863 F5*33            [12] 1948 	mov	_digit3,a
+                                   1949 ;	main.c:462: digit4 = digit4 + (-2*digit4);
+      000865 E5*34            [12] 1950 	mov	a,_digit4
+      000867 75 F0 FE         [24] 1951 	mov	b,#0xFE
+      00086A A4               [48] 1952 	mul	ab
+      00086B 25*34            [12] 1953 	add	a,_digit4
+      00086D F5*34            [12] 1954 	mov	_digit4,a
+      00086F 22               [24] 1955 	ret
+      000870                       1956 00102$:
+                                   1957 ;	main.c:466: write_data('+');
+      000870 75 82 2B         [24] 1958 	mov	dpl,#0x2B
+      000873 02r00r5B         [24] 1959 	ljmp	_write_data
+                                   1960 ;------------------------------------------------------------
+                                   1961 ;Allocation info for local variables in function 'displaynum'
+                                   1962 ;------------------------------------------------------------
+                                   1963 ;	main.c:470: void displaynum()
+                                   1964 ;	-----------------------------------------
+                                   1965 ;	 function displaynum
+                                   1966 ;	-----------------------------------------
+      000876                       1967 _displaynum:
+                                   1968 ;	main.c:472: write_data(digit1+48);
+      000876 74 30            [12] 1969 	mov	a,#0x30
+      000878 25*31            [12] 1970 	add	a,_digit1
+      00087A F5 82            [12] 1971 	mov	dpl,a
+      00087C 12r00r5B         [24] 1972 	lcall	_write_data
+                                   1973 ;	main.c:473: write_data(digit2+48);
+      00087F 74 30            [12] 1974 	mov	a,#0x30
+      000881 25*32            [12] 1975 	add	a,_digit2
+      000883 F5 82            [12] 1976 	mov	dpl,a
+      000885 12r00r5B         [24] 1977 	lcall	_write_data
+                                   1978 ;	main.c:474: write_data(digit3+48);
+      000888 74 30            [12] 1979 	mov	a,#0x30
+      00088A 25*33            [12] 1980 	add	a,_digit3
+      00088C F5 82            [12] 1981 	mov	dpl,a
+      00088E 12r00r5B         [24] 1982 	lcall	_write_data
+                                   1983 ;	main.c:475: write_data(digit4+48);
+      000891 74 30            [12] 1984 	mov	a,#0x30
+      000893 25*34            [12] 1985 	add	a,_digit4
+      000895 F5 82            [12] 1986 	mov	dpl,a
+      000897 02r00r5B         [24] 1987 	ljmp	_write_data
+                                   1988 ;------------------------------------------------------------
+                                   1989 ;Allocation info for local variables in function 'timer0'
+                                   1990 ;------------------------------------------------------------
+                                   1991 ;	main.c:478: void timer0(void) __interrupt 1
+                                   1992 ;	-----------------------------------------
+                                   1993 ;	 function timer0
+                                   1994 ;	-----------------------------------------
+      00089A                       1995 _timer0:
+      00089A C0*00            [24] 1996 	push	bits
+      00089C C0 E0            [24] 1997 	push	acc
+      00089E C0 F0            [24] 1998 	push	b
+      0008A0 C0 82            [24] 1999 	push	dpl
+      0008A2 C0 83            [24] 2000 	push	dph
+      0008A4 C0 07            [24] 2001 	push	(0+7)
+      0008A6 C0 06            [24] 2002 	push	(0+6)
+      0008A8 C0 05            [24] 2003 	push	(0+5)
+      0008AA C0 04            [24] 2004 	push	(0+4)
+      0008AC C0 03            [24] 2005 	push	(0+3)
+      0008AE C0 02            [24] 2006 	push	(0+2)
+      0008B0 C0 01            [24] 2007 	push	(0+1)
+      0008B2 C0 00            [24] 2008 	push	(0+0)
+      0008B4 C0 D0            [24] 2009 	push	psw
+      0008B6 75 D0 00         [24] 2010 	mov	psw,#0x00
+                                   2011 ;	main.c:480: a = (8.0*thrust / (ship_mass + fuel) - gravity);
+      0008B9 C0*05            [24] 2012 	push	_thrust
+      0008BB C0*06            [24] 2013 	push	(_thrust + 1)
+      0008BD C0*07            [24] 2014 	push	(_thrust + 2)
+      0008BF C0*08            [24] 2015 	push	(_thrust + 3)
+      0008C1 90 00 00         [24] 2016 	mov	dptr,#(0x00&0x00ff)
+      0008C4 E4               [12] 2017 	clr	a
+      0008C5 F5 F0            [12] 2018 	mov	b,a
+      0008C7 74 41            [12] 2019 	mov	a,#0x41
+      0008C9 12r00r00         [24] 2020 	lcall	___fsmul
+      0008CC AC 82            [24] 2021 	mov	r4,dpl
+      0008CE AD 83            [24] 2022 	mov	r5,dph
+      0008D0 AE F0            [24] 2023 	mov	r6,b
+      0008D2 FF               [12] 2024 	mov	r7,a
+      0008D3 E5 81            [12] 2025 	mov	a,sp
+      0008D5 24 FC            [12] 2026 	add	a,#0xfc
+      0008D7 F5 81            [12] 2027 	mov	sp,a
+      0008D9 C0 07            [24] 2028 	push	ar7
+      0008DB C0 06            [24] 2029 	push	ar6
+      0008DD C0 05            [24] 2030 	push	ar5
+      0008DF C0 04            [24] 2031 	push	ar4
+      0008E1 C0*19            [24] 2032 	push	_fuel
+      0008E3 C0*1A            [24] 2033 	push	(_fuel + 1)
+      0008E5 C0*1B            [24] 2034 	push	(_fuel + 2)
+      0008E7 C0*1C            [24] 2035 	push	(_fuel + 3)
+      0008E9 85*0D 82         [24] 2036 	mov	dpl,_ship_mass
+      0008EC 85*0E 83         [24] 2037 	mov	dph,(_ship_mass + 1)
+      0008EF 85*0F F0         [24] 2038 	mov	b,(_ship_mass + 2)
+      0008F2 E5*10            [12] 2039 	mov	a,(_ship_mass + 3)
+      0008F4 12r00r00         [24] 2040 	lcall	___fsadd
+      0008F7 A8 82            [24] 2041 	mov	r0,dpl
+      0008F9 A9 83            [24] 2042 	mov	r1,dph
+      0008FB AA F0            [24] 2043 	mov	r2,b
+      0008FD FB               [12] 2044 	mov	r3,a
+      0008FE E5 81            [12] 2045 	mov	a,sp
+      000900 24 FC            [12] 2046 	add	a,#0xfc
+      000902 F5 81            [12] 2047 	mov	sp,a
+      000904 D0 04            [24] 2048 	pop	ar4
+      000906 D0 05            [24] 2049 	pop	ar5
+      000908 D0 06            [24] 2050 	pop	ar6
+      00090A D0 07            [24] 2051 	pop	ar7
+      00090C C0 00            [24] 2052 	push	ar0
+      00090E C0 01            [24] 2053 	push	ar1
+      000910 C0 02            [24] 2054 	push	ar2
+      000912 C0 03            [24] 2055 	push	ar3
+      000914 8C 82            [24] 2056 	mov	dpl,r4
+      000916 8D 83            [24] 2057 	mov	dph,r5
+      000918 8E F0            [24] 2058 	mov	b,r6
+      00091A EF               [12] 2059 	mov	a,r7
+      00091B 12r00r00         [24] 2060 	lcall	___fsdiv
+      00091E AC 82            [24] 2061 	mov	r4,dpl
+      000920 AD 83            [24] 2062 	mov	r5,dph
+      000922 AE F0            [24] 2063 	mov	r6,b
+      000924 FF               [12] 2064 	mov	r7,a
+      000925 E5 81            [12] 2065 	mov	a,sp
+      000927 24 FC            [12] 2066 	add	a,#0xfc
+      000929 F5 81            [12] 2067 	mov	sp,a
+      00092B C0*15            [24] 2068 	push	_gravity
+      00092D C0*16            [24] 2069 	push	(_gravity + 1)
+      00092F C0*17            [24] 2070 	push	(_gravity + 2)
+      000931 C0*18            [24] 2071 	push	(_gravity + 3)
+      000933 8C 82            [24] 2072 	mov	dpl,r4
+      000935 8D 83            [24] 2073 	mov	dph,r5
+      000937 8E F0            [24] 2074 	mov	b,r6
+      000939 EF               [12] 2075 	mov	a,r7
+      00093A 12r00r00         [24] 2076 	lcall	___fssub
+      00093D AC 82            [24] 2077 	mov	r4,dpl
+      00093F AD 83            [24] 2078 	mov	r5,dph
+      000941 AE F0            [24] 2079 	mov	r6,b
+      000943 FF               [12] 2080 	mov	r7,a
+      000944 E5 81            [12] 2081 	mov	a,sp
+      000946 24 FC            [12] 2082 	add	a,#0xfc
+      000948 F5 81            [12] 2083 	mov	sp,a
+      00094A 8C*29            [24] 2084 	mov	_a,r4
+      00094C 8D*2A            [24] 2085 	mov	(_a + 1),r5
+      00094E 8E*2B            [24] 2086 	mov	(_a + 2),r6
+      000950 8F*2C            [24] 2087 	mov	(_a + 3),r7
+                                   2088 ;	main.c:481: delta_v = delta_t * (8.0*thrust / (ship_mass + fuel) - gravity);
+      000952 C0 04            [24] 2089 	push	ar4
+      000954 C0 05            [24] 2090 	push	ar5
+      000956 C0 06            [24] 2091 	push	ar6
+      000958 C0 07            [24] 2092 	push	ar7
+      00095A 85*25 82         [24] 2093 	mov	dpl,_delta_t
+      00095D 85*26 83         [24] 2094 	mov	dph,(_delta_t + 1)
+      000960 85*27 F0         [24] 2095 	mov	b,(_delta_t + 2)
+      000963 E5*28            [12] 2096 	mov	a,(_delta_t + 3)
+      000965 12r00r00         [24] 2097 	lcall	___fsmul
+      000968 85 82*1D         [24] 2098 	mov	_delta_v,dpl
+      00096B 85 83*1E         [24] 2099 	mov	(_delta_v + 1),dph
+      00096E 85 F0*1F         [24] 2100 	mov	(_delta_v + 2),b
+      000971 F5*20            [12] 2101 	mov	(_delta_v + 3),a
+      000973 E5 81            [12] 2102 	mov	a,sp
+      000975 24 FC            [12] 2103 	add	a,#0xfc
+      000977 F5 81            [12] 2104 	mov	sp,a
+                                   2105 ;	main.c:482: velocity = velocity + delta_v;
+      000979 C0*1D            [24] 2106 	push	_delta_v
+      00097B C0*1E            [24] 2107 	push	(_delta_v + 1)
+      00097D C0*1F            [24] 2108 	push	(_delta_v + 2)
+      00097F C0*20            [24] 2109 	push	(_delta_v + 3)
+      000981 85*01 82         [24] 2110 	mov	dpl,_velocity
+      000984 85*02 83         [24] 2111 	mov	dph,(_velocity + 1)
+      000987 85*03 F0         [24] 2112 	mov	b,(_velocity + 2)
+      00098A E5*04            [12] 2113 	mov	a,(_velocity + 3)
+      00098C 12r00r00         [24] 2114 	lcall	___fsadd
+      00098F 85 82*01         [24] 2115 	mov	_velocity,dpl
+      000992 85 83*02         [24] 2116 	mov	(_velocity + 1),dph
+      000995 85 F0*03         [24] 2117 	mov	(_velocity + 2),b
+      000998 F5*04            [12] 2118 	mov	(_velocity + 3),a
+      00099A E5 81            [12] 2119 	mov	a,sp
+      00099C 24 FC            [12] 2120 	add	a,#0xfc
+      00099E F5 81            [12] 2121 	mov	sp,a
+                                   2122 ;	main.c:483: delta_h = velocity * delta_t;
+      0009A0 C0*25            [24] 2123 	push	_delta_t
+      0009A2 C0*26            [24] 2124 	push	(_delta_t + 1)
+      0009A4 C0*27            [24] 2125 	push	(_delta_t + 2)
+      0009A6 C0*28            [24] 2126 	push	(_delta_t + 3)
+      0009A8 85*01 82         [24] 2127 	mov	dpl,_velocity
+      0009AB 85*02 83         [24] 2128 	mov	dph,(_velocity + 1)
+      0009AE 85*03 F0         [24] 2129 	mov	b,(_velocity + 2)
+      0009B1 E5*04            [12] 2130 	mov	a,(_velocity + 3)
+      0009B3 12r00r00         [24] 2131 	lcall	___fsmul
+      0009B6 85 82*2D         [24] 2132 	mov	_delta_h,dpl
+      0009B9 85 83*2E         [24] 2133 	mov	(_delta_h + 1),dph
+      0009BC 85 F0*2F         [24] 2134 	mov	(_delta_h + 2),b
+      0009BF F5*30            [12] 2135 	mov	(_delta_h + 3),a
+      0009C1 E5 81            [12] 2136 	mov	a,sp
+      0009C3 24 FC            [12] 2137 	add	a,#0xfc
+      0009C5 F5 81            [12] 2138 	mov	sp,a
+                                   2139 ;	main.c:484: height = height + delta_h;
+      0009C7 C0*2D            [24] 2140 	push	_delta_h
+      0009C9 C0*2E            [24] 2141 	push	(_delta_h + 1)
+      0009CB C0*2F            [24] 2142 	push	(_delta_h + 2)
+      0009CD C0*30            [24] 2143 	push	(_delta_h + 3)
+      0009CF 85*11 82         [24] 2144 	mov	dpl,_height
+      0009D2 85*12 83         [24] 2145 	mov	dph,(_height + 1)
+      0009D5 85*13 F0         [24] 2146 	mov	b,(_height + 2)
+      0009D8 E5*14            [12] 2147 	mov	a,(_height + 3)
+      0009DA 12r00r00         [24] 2148 	lcall	___fsadd
+      0009DD 85 82*11         [24] 2149 	mov	_height,dpl
+      0009E0 85 83*12         [24] 2150 	mov	(_height + 1),dph
+      0009E3 85 F0*13         [24] 2151 	mov	(_height + 2),b
+      0009E6 F5*14            [12] 2152 	mov	(_height + 3),a
+      0009E8 E5 81            [12] 2153 	mov	a,sp
+      0009EA 24 FC            [12] 2154 	add	a,#0xfc
+      0009EC F5 81            [12] 2155 	mov	sp,a
+      0009EE D0 D0            [24] 2156 	pop	psw
+      0009F0 D0 00            [24] 2157 	pop	(0+0)
+      0009F2 D0 01            [24] 2158 	pop	(0+1)
+      0009F4 D0 02            [24] 2159 	pop	(0+2)
+      0009F6 D0 03            [24] 2160 	pop	(0+3)
+      0009F8 D0 04            [24] 2161 	pop	(0+4)
+      0009FA D0 05            [24] 2162 	pop	(0+5)
+      0009FC D0 06            [24] 2163 	pop	(0+6)
+      0009FE D0 07            [24] 2164 	pop	(0+7)
+      000A00 D0 83            [24] 2165 	pop	dph
+      000A02 D0 82            [24] 2166 	pop	dpl
+      000A04 D0 F0            [24] 2167 	pop	b
+      000A06 D0 E0            [24] 2168 	pop	acc
+      000A08 D0*00            [24] 2169 	pop	bits
+      000A0A 32               [24] 2170 	reti
+                                   2171 ;------------------------------------------------------------
+                                   2172 ;Allocation info for local variables in function 'INT0_INT'
+                                   2173 ;------------------------------------------------------------
+                                   2174 ;	main.c:487: void INT0_INT(void) __interrupt 0
+                                   2175 ;	-----------------------------------------
+                                   2176 ;	 function INT0_INT
+                                   2177 ;	-----------------------------------------
+      000A0B                       2178 _INT0_INT:
+      000A0B C0*00            [24] 2179 	push	bits
+      000A0D C0 E0            [24] 2180 	push	acc
+      000A0F C0 F0            [24] 2181 	push	b
+      000A11 C0 82            [24] 2182 	push	dpl
+      000A13 C0 83            [24] 2183 	push	dph
+      000A15 C0 07            [24] 2184 	push	(0+7)
+      000A17 C0 06            [24] 2185 	push	(0+6)
+      000A19 C0 05            [24] 2186 	push	(0+5)
+      000A1B C0 04            [24] 2187 	push	(0+4)
+      000A1D C0 03            [24] 2188 	push	(0+3)
+      000A1F C0 02            [24] 2189 	push	(0+2)
+      000A21 C0 01            [24] 2190 	push	(0+1)
+      000A23 C0 00            [24] 2191 	push	(0+0)
+      000A25 C0 D0            [24] 2192 	push	psw
+      000A27 75 D0 00         [24] 2193 	mov	psw,#0x00
+                                   2194 ;	main.c:489: l = !l;
+      000A2A B2*00            [12] 2195 	cpl	_l
+                                   2196 ;	main.c:490: if (l == 1)
+      000A2C 30*00 3C         [24] 2197 	jnb	_l,00102$
+                                   2198 ;	main.c:492: thrust = ship_thrust;
+      000A2F 85*09*05         [24] 2199 	mov	_thrust,_ship_thrust
+      000A32 85*0A*06         [24] 2200 	mov	(_thrust + 1),(_ship_thrust + 1)
+      000A35 85*0B*07         [24] 2201 	mov	(_thrust + 2),(_ship_thrust + 2)
+      000A38 85*0C*08         [24] 2202 	mov	(_thrust + 3),(_ship_thrust + 3)
+                                   2203 ;	main.c:493: fuel = fuel - 0.2;
+      000A3B 74 CD            [12] 2204 	mov	a,#0xCD
+      000A3D C0 E0            [24] 2205 	push	acc
+      000A3F 14               [12] 2206 	dec	a
+      000A40 C0 E0            [24] 2207 	push	acc
+      000A42 74 4C            [12] 2208 	mov	a,#0x4C
+      000A44 C0 E0            [24] 2209 	push	acc
+      000A46 74 3E            [12] 2210 	mov	a,#0x3E
+      000A48 C0 E0            [24] 2211 	push	acc
+      000A4A 85*19 82         [24] 2212 	mov	dpl,_fuel
+      000A4D 85*1A 83         [24] 2213 	mov	dph,(_fuel + 1)
+      000A50 85*1B F0         [24] 2214 	mov	b,(_fuel + 2)
+      000A53 E5*1C            [12] 2215 	mov	a,(_fuel + 3)
+      000A55 12r00r00         [24] 2216 	lcall	___fssub
+      000A58 85 82*19         [24] 2217 	mov	_fuel,dpl
+      000A5B 85 83*1A         [24] 2218 	mov	(_fuel + 1),dph
+      000A5E 85 F0*1B         [24] 2219 	mov	(_fuel + 2),b
+      000A61 F5*1C            [12] 2220 	mov	(_fuel + 3),a
+      000A63 E5 81            [12] 2221 	mov	a,sp
+      000A65 24 FC            [12] 2222 	add	a,#0xfc
+      000A67 F5 81            [12] 2223 	mov	sp,a
+      000A69 80 09            [24] 2224 	sjmp	00104$
+      000A6B                       2225 00102$:
+                                   2226 ;	main.c:497: thrust = 0;
+      000A6B E4               [12] 2227 	clr	a
+      000A6C F5*05            [12] 2228 	mov	_thrust,a
+      000A6E F5*06            [12] 2229 	mov	(_thrust + 1),a
+      000A70 F5*07            [12] 2230 	mov	(_thrust + 2),a
+      000A72 F5*08            [12] 2231 	mov	(_thrust + 3),a
+      000A74                       2232 00104$:
+      000A74 D0 D0            [24] 2233 	pop	psw
+      000A76 D0 00            [24] 2234 	pop	(0+0)
+      000A78 D0 01            [24] 2235 	pop	(0+1)
+      000A7A D0 02            [24] 2236 	pop	(0+2)
+      000A7C D0 03            [24] 2237 	pop	(0+3)
+      000A7E D0 04            [24] 2238 	pop	(0+4)
+      000A80 D0 05            [24] 2239 	pop	(0+5)
+      000A82 D0 06            [24] 2240 	pop	(0+6)
+      000A84 D0 07            [24] 2241 	pop	(0+7)
+      000A86 D0 83            [24] 2242 	pop	dph
+      000A88 D0 82            [24] 2243 	pop	dpl
+      000A8A D0 F0            [24] 2244 	pop	b
+      000A8C D0 E0            [24] 2245 	pop	acc
+      000A8E D0*00            [24] 2246 	pop	bits
+      000A90 32               [24] 2247 	reti
+                                   2248 ;------------------------------------------------------------
+                                   2249 ;Allocation info for local variables in function 'timer1'
+                                   2250 ;------------------------------------------------------------
+                                   2251 ;	main.c:502: void timer1(void) __interrupt 3
+                                   2252 ;	-----------------------------------------
+                                   2253 ;	 function timer1
+                                   2254 ;	-----------------------------------------
+      000A91                       2255 _timer1:
+                                   2256 ;	main.c:504: TL1 = 0x50;
+      000A91 75 8B 50         [24] 2257 	mov	_TL1,#0x50
+                                   2258 ;	main.c:505: TH1 = 0xF0;
+      000A94 75 8D F0         [24] 2259 	mov	_TH1,#0xF0
+                                   2260 ;	main.c:506: speaker = !speaker;
+      000A97 B2 80            [12] 2261 	cpl	_P0_0
+      000A99 32               [24] 2262 	reti
+                                   2263 ;	eliminated unneeded mov psw,# (no regs used in bank)
+                                   2264 ;	eliminated unneeded push/pop psw
+                                   2265 ;	eliminated unneeded push/pop dpl
+                                   2266 ;	eliminated unneeded push/pop dph
+                                   2267 ;	eliminated unneeded push/pop b
+                                   2268 ;	eliminated unneeded push/pop acc
+                                   2269 	.area CSEG    (CODE)
+                                   2270 	.area CONST   (CODE)
+      000000                       2271 _win:
+      000000 59 6F 75 20 57 69 6E  2272 	.ascii "You Win!"
+             21
+      000008 00                    2273 	.db 0x00
+      000009                       2274 _lose:
+      000009 59 6F 75 20 43 72 61  2275 	.ascii "You Crashed!"
+             73 68 65 64 21
+      000015 00                    2276 	.db 0x00
+      000016                       2277 _gameover:
+      000016 47 61 6D 65 20 4F 76  2278 	.ascii "Game Over."
+             65 72 2E
+      000020 00                    2279 	.db 0x00
+      000021                       2280 _start1:
+      000021 4D 69 73 73 69 6F 6E  2281 	.ascii "Mission:"
+             3A
+      000029 00                    2282 	.db 0x00
+      00002A                       2283 _start2:
+      00002A 4C 61 6E 64 20 41 72  2284 	.ascii "Land Artemis saf"
+             74 65 6D 69 73 20 73
+             61 66
+      00003A 00                    2285 	.db 0x00
+      00003B                       2286 _start3:
+      00003B 65 6C 79 20 6F 6E 20  2287 	.ascii "ely on the surfa"
+             74 68 65 20 73 75 72
+             66 61
+      00004B 00                    2288 	.db 0x00
+      00004C                       2289 _start4:
+      00004C 63 65 20 6F 66 20 6D  2290 	.ascii "ce of mars. Land"
+             61 72 73 2E 20 4C 61
+             6E 64
+      00005C 00                    2291 	.db 0x00
+      00005D                       2292 _start5:
+      00005D 20 77 69 74 68 20 61  2293 	.ascii " with a velocity"
+             20 76 65 6C 6F 63 69
+             74 79
+      00006D 00                    2294 	.db 0x00
+      00006E                       2295 _start6:
+      00006E 68 69 67 68 65 72 20  2296 	.ascii "higher than -10."
+             74 68 61 6E 20 2D 31
+             30 2E
+      00007E 00                    2297 	.db 0x00
+      00007F                       2298 _start7:
+      00007F 20 49 6E 66 6F 72 6D  2299 	.ascii " Information:"
+             61 74 69 6F 6E 3A
+      00008C 00                    2300 	.db 0x00
+      00008D                       2301 _start8:
+      00008D 47 72 61 76 69 74 79  2302 	.ascii "Gravity: 3.7"
+             3A 20 33 2E 37
+      000099 00                    2303 	.db 0x00
+      00009A                       2304 _start9:
+      00009A 20 57 65 20 77 69 73  2305 	.ascii " We wish you luck "
+             68 20 79 6F 75 20 6C
+             75 63 6B 20
+      0000AC 00                    2306 	.db 0x00
+      0000AD                       2307 _start10:
+      0000AD 4F 75 72 20 6D 69 73  2308 	.ascii "Our mission depe"
+             73 69 6F 6E 20 64 65
+             70 65
+      0000BD 00                    2309 	.db 0x00
+      0000BE                       2310 _start11:
+      0000BE 6E 64 73 20 6F 6E 20  2311 	.ascii "nds on you."
+             79 6F 75 2E
+      0000C9 00                    2312 	.db 0x00
+      0000CA                       2313 _enginep1:
+      0000CA 20 53 69 72 21 20 52  2314 	.ascii " Sir! Rocket boos"
+             6F 63 6B 65 74 20 62
+             6F 6F 73
+      0000DB 00                    2315 	.db 0x00
+      0000DC                       2316 _enginep2:
+      0000DC 74 65 72 73 20 61 72  2317 	.ascii "ters are overheat"
+             65 20 6F 76 65 72 68
+             65 61 74
+      0000ED 00                    2318 	.db 0x00
+      0000EE                       2319 _enginep3:
+      0000EE 69 6E 67 21 20 20 20  2320 	.ascii "ing!    Engine p"
+             20 45 6E 67 69 6E 65
+             20 70
+      0000FE 00                    2321 	.db 0x00
+      0000FF                       2322 _enginep4:
+      0000FF 70 6F 77 65 72 20 64  2323 	.ascii "power decreases "
+             65 63 72 65 61 73 65
+             73 20
+      00010F 00                    2324 	.db 0x00
+      000110                       2325 _enginep5:
+      000110 62 79 20 32 35 25 2E  2326 	.ascii "by 25%."
+      000117 00                    2327 	.db 0x00
+      000118                       2328 _turb1:
+      000118 20 53 69 72 21 20 57  2329 	.ascii " Sir! We are expe"
+             65 20 61 72 65 20 65
+             78 70 65
+      000129 00                    2330 	.db 0x00
+      00012A                       2331 _turb2:
+      00012A 72 69 65 6E 63 69 6E  2332 	.ascii "riencing a sands"
+             67 20 61 20 73 61 6E
+             64 73
+      00013A 00                    2333 	.db 0x00
+      00013B                       2334 _turb3:
+      00013B 74 6F 72 6D 21 20 42  2335 	.ascii "torm! Buckle up!"
+             75 63 6B 6C 65 20 75
+             70 21
+      00014B 00                    2336 	.db 0x00
+      00014C                       2337 _leak1:
+      00014C 20 53 69 72 21 20 57  2338 	.ascii " Sir! We have a f"
+             65 20 68 61 76 65 20
+             61 20 66
+      00015D 00                    2339 	.db 0x00
+      00015E                       2340 _leak2:
+      00015E 75 65 6C 20 6C 65 61  2341 	.ascii "uel leak. Fuel d"
+             6B 2E 20 46 75 65 6C
+             20 64
+      00016E 00                    2342 	.db 0x00
+      00016F                       2343 _leak3:
+      00016F 64 65 63 72 65 61 73  2344 	.ascii "decreases by 20%"
+             65 73 20 62 79 20 32
+             30 25
+      00017F 00                    2345 	.db 0x00
+      000180                       2346 _em1:
+      000180 53 69 72 21 20 74 68  2347 	.ascii "Sir! throttle ma"
+             72 6F 74 74 6C 65 20
+             6D 61
+      000190 00                    2348 	.db 0x00
+      000191                       2349 _em2:
+      000191 6C 61 66 75 6E 63 74  2350 	.ascii "lafunction! No t"
+             69 6F 6E 21 20 4E 6F
+             20 74
+      0001A1 00                    2351 	.db 0x00
+      0001A2                       2352 _em3:
+      0001A2 68 72 6F 74 74 6C 65  2353 	.ascii "hrottle control."
+             20 63 6F 6E 74 72 6F
+             6C 2E
+      0001B2 00                    2354 	.db 0x00
+      0001B3                       2355 _emb1:
+      0001B3 54 68 72 6F 74 74 6C  2356 	.ascii "Throttle control"
+             65 20 63 6F 6E 74 72
+             6F 6C
+      0001C3 00                    2357 	.db 0x00
+      0001C4                       2358 _emb2:
+      0001C4 69 73 20 62 61 63 6B  2359 	.ascii "is back."
+             2E
+      0001CC 00                    2360 	.db 0x00
+                                   2361 	.area XINIT   (CODE)
+                                   2362 	.area CABS    (ABS,CODE)
