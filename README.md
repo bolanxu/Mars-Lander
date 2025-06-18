@@ -14,3 +14,5 @@ I used an microcontroller from the 8051 family, the STC125A60S2 developed by STC
 
 
 ![](img/mars_lander.png)
+
+!(https://youtu.be/TvxShnH4dns?si=FG6ILegN3fnswcwK)
